@@ -2,7 +2,7 @@
 layout: post
 title:  "Package Manager Console Entity Framework 6 Migrations profile"
 date:   2017-04-10 20:22:13 +0200
-categories: powershell
+categories: productivity
 tags: [net,ef6,powershell,nuget]
 ---
 
@@ -75,7 +75,7 @@ Updating the database using a numeric TargetMigration
 -----------------------------------------------------
 Easily go back to a specific migration using `ud -1` instead of
 {% highlight powershell %}
-Update-Database -TargetMigration:SecondLastMigration
+Update-Database -TargetMigration:SecondLastMigrationName
 {% endhighlight %}
 
 ### Example
