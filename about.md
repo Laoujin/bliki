@@ -1,15 +1,18 @@
 ---
 layout: page
-title: About
+title: pongit
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+```
+pongit BVBA
+Doolhofstraat 37
+9300 Aalst
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jekyll" %} /
-[minima](https://github.com/jekyll/minima)
+0476 / 40 35 02
+woutervs@hotmail.com
 
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
+IBAN: BE04 0689 0602 8931
+BTW 0662 755 072
+BIC: GKCCBEBB
+```
