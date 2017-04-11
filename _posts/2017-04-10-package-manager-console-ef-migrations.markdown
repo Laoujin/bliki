@@ -6,8 +6,18 @@ categories: productivity
 tags: [net,ef6,powershell,nuget]
 ---
 
+This tutorial is about adding the following functionality to the Entity Framework Migrations CLI:  
+- Execute commands against the project containing the migrations by providing the most likely -Project parameter value
+- Allow updating the database using a numeric TargetMigration (-2 = migrate to the third last migration)
+
 Find [the full Nuget_profile.ps1 here][github-nuget-profile]
 
+
+* * *
+
+
+Activating your Nuget_profile
+-----------------------------
 When opening the Package Manager Console (PMC) in Visual Studio, the file 
 `%USERPROFILE%\Documents\WindowsPowerShell\NuGet_profile.ps1` is executed.
 
@@ -18,10 +28,6 @@ The following aliases allow you to install a package with just `ip EntityFramewo
 Set-Alias ip Install-Package
 Set-Alias unip Uninstall-Package
 {% endhighlight %}
-
-This tutorial is about adding the following functionality to the Entity Framework Migrations CLI:  
-- Execute commands against the project containing the migrations by providing the most likely -Project parameter value
-- Allow updating the database using a numeric TargetMigration (-2 = migrate to the third last migration)
 
 
 * * *
