@@ -18,8 +18,11 @@ Find [the full Nuget_profile.ps1 here][github-nuget-profile]
 
 Activating your Nuget_profile
 -----------------------------
-When opening the Package Manager Console (PMC) in Visual Studio, the file 
-`%USERPROFILE%\Documents\WindowsPowerShell\NuGet_profile.ps1` is executed.
+When opening the Package Manager Console (PMC) in Visual Studio, the profile file is executed.
+
+{% highlight cmd %}
+%USERPROFILE%\Documents\WindowsPowerShell\NuGet_profile.ps1
+{% endhighlight %}
 
 You can reload the NuGet_profile.ps1 file using `. $profile` in the PMC.
 
