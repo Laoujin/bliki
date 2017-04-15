@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "VB.NET vs C# Syntax differences"
-date:   2017-04-13 15:00:00 +0200
+date:   2017-04-15 15:00:00 +0200
 categories: dotnet
 tags: [net]
 ---
@@ -358,59 +358,35 @@ End Class
 
 ### Linq, Lambdas and Anonymous Types
 
-**Linq**:
 
-TODO: Linq & Delegates!
---> Cover AddHandler, Handles, WithEvents
-
-
-```vb
-Dim results = From n In nums
-                  Where n > 4
-                  Select n
-
-Dim goodStudents = From s In Students
-            Where s.Gpa >= 3.0
-            Order By s.Gpa Descending
-            Select s
-```
-
-C# is query syntax is exactly the same with all keywords in lowercase.
-Except `Order By` which is without the space in C# `orderby`.
-
-
-
-**Lambdas and Delegates**:
+**Lambdas**:
 ```vb
 Dim adder = Function(x) x + 1
 ' x => x + 1
 
-Dim writer = Sub(x As String)
-	Console.WriteLine(x)
-End Sub
-' yes really this verbose...
+Dim writer =
+	Sub(time As TimeSpan)
+		Console.WriteLine(time)
+	End Sub
+```
 
+**Events**:
+```vb
+Public Class School
+	Event Recess(ByVal time As TimeSpan)
 
-Delegate Sub MsgArrivedEventHandler(ByVal message As String)
+	Sub Sit()
+		' No null check required
+		RaiseEvent Recess(TimeSpan.FromMinutes(15))
+	End Sub
+End Class
 
-Event MsgArrivedEvent As MsgArrivedEventHandler
-
-' or to define an event which declares a delegate implicitly
-Event MsgArrivedEvent(ByVal message As String)
-
-AddHandler MsgArrivedEvent, AddressOf My_MsgArrivedCallback 
-' Won't throw an exception if obj is Nothing
-RaiseEvent MsgArrivedEvent("Test message") 
-RemoveHandler MsgArrivedEvent, AddressOf My_MsgArrivedCallback
-Imports System.Windows.Forms
-
-Dim WithEvents MyButton As Button   ' WithEvents can't be used on local variable
-MyButton = New Button
-
-Sub MyButton_Click(ByVal sender As System.Object, _
-  ByVal e As System.EventArgs) Handles MyButton.Click 
-  MessageBox.Show(Me, "Button was clicked", "Info", _
-    MessageBoxButtons.OK, MessageBoxIcon.Information) 
+Shared Sub Main()
+	Dim school As New School
+	AddHandler school.Recess, writer
+	' AddHandler school.Recess, AddressOf Me.Play
+	school.Sit()
+	RemoveHandler school.Recess, writer
 End Sub
 ```
 
@@ -424,6 +400,55 @@ Dim stu = New With {Key .Name = "Sue", .Gpa = 3.4}
 C# doesn't have `Key` which is used for comparisons: `stu.Equals(stu2)`.  
 VB.NET without the `Key` keyword and C# consider two anonymous types to be
 equal if all their properties are equal.
+
+
+
+**Linq**:
+```vb
+Public Class Person
+	Property Name As String
+	Property Age As Integer
+End Class
+
+Dim persons As New List(Of Person) From 
+{
+	New Person With {.Name = "Bob", .Age = 21},
+	New Person With {.Name = "Alice", .Age = 25},
+	New Person With {.Name = "Janice", .Age = 25}
+}
+
+Dim adults =
+	From p In persons
+	Where p.Age > 18
+	Order By p.Name Descending
+	Select New With {Key p.Name, .YearsOnEarth = p.Age}
+	Take 5
+
+' Do need _ for line continuations here
+Dim lambdaAdults = persons _
+	.Where(Function(p) p.Age > 18) _
+	.OrderByDescending(Function(p) p.Name) _
+	.Select(Function(p) New With {Key p.Name, .YearsOnEarth = p.Age}) _
+	.Take(5)
+```
+
+Basic C# query syntax is exactly the same with all keywords in lowercase.
+Except `Order By` which is `orderby x desc` in C#. VB.NET also adds some
+extra functionality like `Take While`, `Select p Distinct`, `Skip` and
+`Skip While`.
+
+```vb
+' Without projection, Select is optional
+Dim peopleByAge =
+	From p In persons
+	Group By Age = p.Age
+	Into People = Group, Count()
+
+' TODO: VB.NET LINQ to add Group By, Join, Group Join, Aggregate and Let clauses
+' I should probably add some additional stuff here with exact C# translations
+' https://msdn.microsoft.com/en-us/library/bb763068.aspx
+```
+
 
 
 
@@ -500,10 +525,6 @@ Iterator Function Iterate() As IEnumerable(Of Integer)
 End Function
 ```
 
-**Tuples**:
-```vb
-' TODO: do cover tuples
-```
 
 
 Dangers of VB6 Legacy
@@ -548,7 +569,7 @@ If you want to forego Object Oriented, the whole set of VB6 string methods is av
 ```
 UCase, Len, Replace, Format, Left, Mid, Trim, ...
 
-' ex:
+' Mid Can be called like this because Microsoft.VisualBasic.Strings is a Module
 Dim s = Mid("testing", 2, 3)   ' est
 ```
 
@@ -601,19 +622,22 @@ This somewhat changes with C# 7 features that have not been implemented for VB.N
 - Out variables: `int.TryParse(s, out var i)`
 - Pattern Matching: `o is int i`, switch
 - `return ref x;`
+- Tuples
 
 
 
 Available in VB.NET only
 ------------------------
 Many things have been covered already:
-- Modules: Which can be (sort of) emulated with `static class` and static using statements.
-- Inline DateTime declarations
-- Like operator
-- When blocks in exceptions
 - More versatile switch
-- Static local variables
+- Extra Linq query keywords (Take, Skip, Distinct, ...)
+- `Key` keyword for anonymous types
+- Like operator for simple string matching
 - `Handles` for events
+- Static local variables
+- Modules: Which can be (sort of) emulated with `static class` and static using statements.
+- When blocks in exceptions
+- Inline DateTime declarations
 
 
 **With**
@@ -622,6 +646,14 @@ With hero
 	.Name = "SpamMan"
 	.PowerLevel = 3
 End With
+```
+
+**WithEvents and Handles**:
+```vb
+Dim WithEvents Button1 As New Button
+
+Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+End Sub
 ```
 
 
@@ -651,12 +683,19 @@ Dim xml As XElement =
 You can even build Xml with dynamic node names and by meshing in some Linq.
 It's probably more a thing for migration and test code and not so much for production code.
 
+```vb
+Dim persons = 
+	<Persons>
+		<%= From p In persons Select <Person><%= p.Name %></Person> %>
+	</Persons>
+```
+
 Getting stuff out of XElement is also very nicely done:
 ```vb
 Dim title = xml.<Root>.<Title>.Value
 Dim nowNode = xml...<Item>.First()
-Dim nowType = nowNode.@Type
-Dim nowValue = nowNode.Value
+Dim nowTypeAttribute = nowNode.@Type
+Dim nowNodeText = nowNode.Value
 ```
 
 
