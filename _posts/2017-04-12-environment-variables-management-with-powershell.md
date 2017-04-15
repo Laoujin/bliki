@@ -3,7 +3,7 @@ layout: post
 title:  "Managing Environment Variables with PowerShell"
 date:   2017-04-12 15:00:00 +0200
 categories: productivity
-tags: [powershell]
+tags: [powershell,windows]
 ---
 
 Working with environment variables in Windows is as easy as:  

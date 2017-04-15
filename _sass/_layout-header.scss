@@ -1,0 +1,129 @@
+.site-header {
+	margin: 0 auto;
+	padding: 0;
+	position: relative;
+	width: 1000px;
+	z-index: 50;
+
+	hgroup {
+		display: inline-block;
+		margin: 0 auto;
+		max-width: 100%;
+		padding: 0;
+		position: relative;
+		z-index: 20;
+	}
+
+	.site-title,
+	.site-title a {
+		font-family: Pacifico, script;
+		font-size: 62px;
+		line-height: 75px;
+		margin: 0;
+		padding: 0;
+		position: relative;
+		text-decoration: none;
+		z-index: 20;
+	}
+
+	.site-title a:hover,
+	.site-title a:visited {
+		color: $brand-color;
+	}
+
+
+	.site-description {
+		color: #fff;
+		float: left;
+		font-family: "Port Lligat Sans", Helvetica, sans-serif;
+		font-size: 19px;
+		margin: .4em 0 .4em 1.6em;
+		position: relative;
+		text-transform: none;
+		z-index: 20;
+	}
+}
+
+
+@media (max-width: 500px) {
+	.site-header {
+		.site-title,
+		.site-title a {
+			font-size: 36px;
+			line-height: 50px;
+		}
+	}
+}
+
+
+@media (max-width: 1000px) {
+	.site-header {
+		max-width: 100%;
+	}
+}
+
+
+.main-navigation {
+	background: rgba(57, 172, 160, .5);
+	border-radius: 2px;
+	display: block;
+	float: right;
+	font-size: 16px;
+	margin: 0 0 1.6em 0;
+	min-height: 38px;
+	padding: 0;
+	position: relative;
+	text-align: left;
+	width: 100%;
+}
+
+
+.main-navigation .menu {
+	display: block;
+	float: right;
+	margin: 0 9px 0;
+	position: relative;
+	max-width: 53%;
+}
+
+
+.main-navigation ul {
+	position: relative;
+	z-index: 597;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+.main-navigation ul li {
+	vertical-align: middle;
+	zoom: 1;
+	padding-top: 5px;
+	display: block;
+	float: right;
+	font-family: Oswald, Helvetica, sans-serif;
+	margin: 0;
+	position: relative;
+	text-transform: uppercase;
+	word-wrap: break-word;
+}
+
+
+
+.main-navigation li a:link,
+.main-navigation li a:visited,
+.main-navigation li a:hover,
+.main-navigation li a:active {
+	color: #fff;
+	display: block;
+	height: auto;
+	padding: .4em 15px;
+	transition: 0s;
+	-webkit-transition: 0s;
+	-moz-transition: 0s;
+	word-wrap: break-word;
+	text-decoration: none;
+	font-weight: 600;
+	letter-spacing: 0.8px;
+}

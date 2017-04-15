@@ -45,8 +45,7 @@ Setting up tasks
 
 PsReadLine Integration
 ----------------------
-
-Rename-Tab
+Rename-Tab -> Another post with Posh-Git, PsReadLine
 
 
 
