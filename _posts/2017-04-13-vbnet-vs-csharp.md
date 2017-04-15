@@ -6,20 +6,14 @@ categories: dotnet
 tags: [net]
 ---
 
-TODO:
-- Check against: https://learnxinyminutes.com/docs/powershell/
----> is the same stuff covered?
-
-
-
 A quick cheat sheet outlining the syntax differences between VB.NET and C#.  
 Because some things are just so similar but still confusingly different in VB.NET vs C#...
 
-We'll also cover:
-- Things VB.NET just can't do (pointers, ...)
-- The few cases where VB.NET code is *shorter* than it's C# counterpart (gasp!)
-- Dangers of using some of the VB6 legacy (My, Option Strict)
-- Some VB.NET only stuff that comes in handy from time to time
+Along the way we'll make some amazing discoveries like:
+- There are things VB.NET just can't do (pointers, ...)
+- There are a few cases where VB.NET code is *shorter* than it's C# counterpart (gasp!)
+- VB.NET defaults are not what you might expect from a strongly typed language due to its VB6 legacy (Option Strict, Explicit)
+- There is some VB.NET only stuff that comes in handy from time to time
 
 
 This post assumes familiarity with C#.
@@ -33,6 +27,7 @@ Or some fun issues during heavy context switching :)
 - Terminating statements with `;` in VB.NET or not using `_` for line continuations.
 - Compare with `=` in C# or with `==` in VB.NET (and `!=` vs `<>`)
 - VB.NET is *not* case sensitive
+- Arrays in VB.NET are 1 based
 
 
 
@@ -167,12 +162,12 @@ so `Conversion.Int(x)` is available as `Int(x)` without Import.
 | ^  (raise to a power)           | Math.Pow
 |
 | Assignment
-| =  +=  -=, ...                  | = += -=
+| =  +=  -=, ...                  | = += -=, ...
 |                                 | ++ --
 |
 | Strings
 | Concatenation: &                | +
-| Quote: ""                       | \"
+| Escape quote: ""                | \\"
 | vbCrLf, vbTab, ...              | \r\n, \t, ...
 |                                 |                                 |
 {: .table-margin}
@@ -193,16 +188,16 @@ the evalusations. Ex: `If x IsNot Nothing And x.Trigger() Then` will crash.
 {: .table-code}
 
 
-
 ```vb
 If x < 0 Then res = "oeps" Else res = "yaye"
 
 If x > 5 Then
-  x *= y
-ElseIf x = 5 OrElse y Mod 2 = 0 Then
-  x += y
+	x *= y
+ElseIf x = 5 OrElse y Mod 2 = 0
+	' Then is optional
+	x += y
 Else
-  x /= y
+	x /= y
 End If
 
 ' Microsoft.VisualBasic.CompilerServices.LikeOperator.LikeString
@@ -242,8 +237,6 @@ foreach (sting n in names) {
 	continue;
 }
 ```
-
-
 
 
 
@@ -362,18 +355,42 @@ End Class
 ```
 
 
-```
-
-```
-
-```vb
-
-```
-
 
 ### Linq, Lambdas and Anonymous Types
 
+**Linq**:
+
+TODO: Linq & Delegates!
+--> Cover AddHandler, Handles, WithEvents
+
+
 ```vb
+Dim results = From n In nums
+                  Where n > 4
+                  Select n
+
+Dim goodStudents = From s In Students
+            Where s.Gpa >= 3.0
+            Order By s.Gpa Descending
+            Select s
+```
+
+C# is query syntax is exactly the same with all keywords in lowercase.
+Except `Order By` which is without the space in C# `orderby`.
+
+
+
+**Lambdas and Delegates**:
+```vb
+Dim adder = Function(x) x + 1
+' x => x + 1
+
+Dim writer = Sub(x As String)
+	Console.WriteLine(x)
+End Sub
+' yes really this verbose...
+
+
 Delegate Sub MsgArrivedEventHandler(ByVal message As String)
 
 Event MsgArrivedEvent As MsgArrivedEventHandler
@@ -423,11 +440,24 @@ equal if all their properties are equal.
 |--------------------------------------------|--------------------------------------------|
 {: .table-code}
 
-TODO: Initializers: Dictionary, Array, List, ...
 
+```vb
+' VB.NET
+Dim nums = New List(Of Integer) From {1, 2, 3}
+Dim students As New Dictionary(Of Integer, String) From
+{
+	{123, "Bob"}, {456, "Alice"}
+}
+```
 
-
-
+```c#
+// C#
+var nums = new List<int>() {1, 2, 3};
+var students = new Dictionary<int, string>
+{
+	{123, "Bob"}, {456, "Alice"}
+};
+```
 
 
 
@@ -462,6 +492,18 @@ Using r As StreamReader = File.OpenText("file.txt")
 End Using
 ```
 
+**Yield**:
+```vb
+Iterator Function Iterate() As IEnumerable(Of Integer)
+	Yield 5
+	Yield 7
+End Function
+```
+
+**Tuples**:
+```vb
+' TODO: do cover tuples
+```
 
 
 Dangers of VB6 Legacy
@@ -488,8 +530,6 @@ by turning `Option Strict On` and `Option Infer On` in the Project Properties Co
 They are listed here, but you may skip this part and pretend it never happened.
 
 ```vb
-Dim s = Mid("testing", 2, 3)   ' est
-
 ' IIf always evaluates both branches. Use If() instead!
 Dim result = IIf(someBool, "truthyCase", "falsyCase")
 
@@ -501,57 +541,123 @@ On Error GoTo MyErrorHandler
 MyErrorHandler: Console.WriteLine(Err.Description)
 ```
 
+### Microsoft.VisualBasic namespace
+
+`Microsoft.VisualBasic.Strings`:  
+If you want to forego Object Oriented, the whole set of VB6 string methods is available.  
+```
+UCase, Len, Replace, Format, Left, Mid, Trim, ...
+
+' ex:
+Dim s = Mid("testing", 2, 3)   ' est
+```
+
+`Microsoft.VisualBasic.Constants`:
+- vbCancel = MsgBoxResult.Cancel
+- vbNullString = Nothing
+- vbLongDate = DateFormat.LongDate
+- vbHidden = FileAttribute.Hidden
+- VbFalse = TriState.False
+
+`Microsoft.VisualBasic.DateAndTime`:
+- DateAdd, DatePart, WeekDayName, ...
+
+`Microsoft.VisualBasic.FileSystem`:  
+ChDrive, SetAttr, Lock, Seek, CurDir, Input ...  
+It's probably a good idea to steer away from these and stick to System.IO and Streams.
+
+`Microsoft.VisualBasic.Interaction`:
+- Beep: Ow yeah...
+- SaveSetting/DeleteSetting: in the registry
+- InputBox
+- Environ: Get system environment variables
+- Shell: Run an executable program
+
+`Microsoft.VisualBasic.Devices`:  
+- Audio: Play, [Stop]
+- Clock: LocalTime, GmtTime
+- Keyboard: ShiftKeyDown, NumLock, ...
+- Computer: Clipboard, Ports, Mouse, Screen, ...
+- ComputerInfo: OSFullName, TotalPhysicalMemory, AvailableVirtualMemory, ...
+- Network: DownloadFile, UploadFile, Ping, NetworkAvailabilityChanged
+
+`Microsoft.VisualBasic.Information`:  
+- IsNumeric, IsDate, IsArray, L/UBound, RGB, ...
+
+`Microsoft.VisualBasic.Logging`:  
+- Write to the ApplicationLog.
+
 
 
 Available in C# only
 --------------------
+The only real blocker against VB.NET is unsafe and checked/unchecked code.
+But if you really need to be working unsafely, perhaps you should consider not using .NET.
 
-unsafe/pointers, checked/unchecked
+There is other C# only stuff that has already been covered (ex: Out parameters) and there is more like multi line comments
+and `a++` but nothing serious that can't be worked around with some additional statements in VB.NET.
 
-**Other**:  
-- Multi line comments
-- 
+This somewhat changes with C# 7 features that have not been implemented for VB.NET:
+- Out variables: `int.TryParse(s, out var i)`
+- Pattern Matching: `o is int i`, switch
+- `return ref x;`
 
 
 
 Available in VB.NET only
 ------------------------
+Many things have been covered already:
+- Modules: Which can be (sort of) emulated with `static class` and static using statements.
+- Inline DateTime declarations
+- Like operator
+- When blocks in exceptions
+- More versatile switch
+- Static local variables
+- `Handles` for events
 
+
+**With**
 ```vb
-Delegate Sub HelloDelegate(ByVal s As String)
-Sub SayHello(ByVal s As String)
-	Console.WriteLine("Hello, " & s)
-End Sub
-
-' Create delegate that calls SayHello
-Dim hello As HelloDelegate = AddressOf SayHello
-
-
-
-
-With hero 
-  .Name = "SpamMan" 
-  .PowerLevel = 3 
-End With 
+With hero
+	.Name = "SpamMan"
+	.PowerLevel = 3
+End With
 ```
 
 
-- XML Literals
-- WithEvents
-- Handles Me.Load --> can just delete an EventHandler without having to delete any AddHandler
-Firing of events is done with the RaiseEvent keyword, giving the IDE the chance to show a list of available events to pick from. RaiseEvents implicitly checks if there are any event handlers wired up. (in C# raising an event is syntactically identical to calling a procedure, and it requires an additional line of code to check for wired event handlers)
+**My namespace**  
+A whole bunch of convenience methods in `Microsoft.VisualBasic.ApplicationServices`.  
+- `My.Application`: CommandLineArgs, Culture, ...
+- `My.Computer`: Like Microsoft.VisualBasic.Devices
+- `My.User`: CurrentPrincipal, IsAuthenticated, IsInRole
+- `My.Settings`: Working with app.config AppSettings
+- `My.Resources`: Easily get a resources as string or stream
 
 
+**XML Literals**  
+When you want to quickly build some Xml, VB.NET Xml literals can come in quite handy.
 
+```vb
+Dim xml As XElement = 
+	<Root>
+		<Title>Xml Literals</Title>
+		<Items>
+			<Item Type="Date"><%= Datetime.Now %></Item>
+			<Item Type="String">Whoah</Item>
+		</Items>
+	 </Root>
+```
 
-Local variables can be declared with the Static modifier in order to preserve their value between calls to the procedure.
-Multiple default property indexers
-My namespace
+You can even build Xml with dynamic node names and by meshing in some Linq.
+It's probably more a thing for migration and test code and not so much for production code.
 
-
-
-https://en.wikipedia.org/wiki/Comparison_of_C_Sharp_and_Visual_Basic_.NET
-
+Getting stuff out of XElement is also very nicely done:
+```vb
+Dim title = xml.<Root>.<Title>.Value
+Dim nowNode = xml...<Item>.First()
+Dim nowType = nowNode.@Type
+Dim nowValue = nowNode.Value
+```
 
 
 Convertion troubles
@@ -564,19 +670,22 @@ They do not provide much more than a starting point.
 
 - Using an array accessor in VB.NET (`arr(0)` vs `arr[0]`) results in an incorrect translation
 - "Newer" features, like lambdas are converted to dynamic, or not at all
-- Use any VB.NET or C# only feature and they won't even try to write some convertion code
+- Use any VB.NET or C# only feature and they won't even make an attempt at converting it
 
 
 
 Summary
 -------
-**So what's best :)**
+**So which is best**  
+(just kidding:)
 
-VB.NET used to be lacking many convenient C# features. While it has mostly catched up, C# proves to be a moving target.
+VB.NET used to be lacking many convenient C# features (using, yield, ...). While it has mostly catched up, 
+C# proves to be a moving target.
 
 Properties used to be a real pain in VB.NET. A one liner syntax is now available like
 `Property Start As Date`. But by now C# already introduced property expression bodies
-and VB.NET can start catching up again.
+leaving VB.NET behind again.
+
 
 For a long time VB.NET switch statement used to be more versatile but with the implementation of Pattern Matching
 in C# this is no longer the case.
@@ -586,6 +695,10 @@ C#'s `o.Where((int x) => x < 0)`... But at least it's there :)
 
 I'm probably a *little* biased towards C# because of the more succint syntax and because the vast majority of
 online examples are written in C# while the free convertion tools are severly lacking.
+
+
+It's perhaps worth mentioning that VB.NET and Resharper are not on the best of terms.
+
 
 Unless you really need some of the VB.NET or C# only features, choosing one over the other should probably
 still be a team decision.
