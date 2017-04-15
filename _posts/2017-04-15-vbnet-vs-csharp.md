@@ -569,7 +569,7 @@ If you want to forego Object Oriented, the whole set of VB6 string methods is av
 ```
 UCase, Len, Replace, Format, Left, Mid, Trim, ...
 
-' Mid Can be called like this because Microsoft.VisualBasic.Strings is a Module
+' Mid can be called like this because Microsoft.VisualBasic.Strings is a Module
 Dim s = Mid("testing", 2, 3)   ' est
 ```
 
@@ -606,7 +606,7 @@ It's probably a good idea to steer away from these and stick to System.IO and St
 - IsNumeric, IsDate, IsArray, L/UBound, RGB, ...
 
 `Microsoft.VisualBasic.Logging`:  
-- Write to the ApplicationLog.
+- Write to the Application EventLog.
 
 
 
@@ -633,11 +633,11 @@ Many things have been covered already:
 - Extra Linq query keywords (Take, Skip, Distinct, ...)
 - `Key` keyword for anonymous types
 - Like operator for simple string matching
-- `Handles` for events
 - Static local variables
 - Modules: Which can be (sort of) emulated with `static class` and static using statements.
 - When blocks in exceptions
 - Inline DateTime declarations
+- Passing properties ByRef
 
 
 **With**
