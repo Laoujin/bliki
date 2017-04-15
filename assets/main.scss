@@ -37,3 +37,17 @@ $on-laptop:        800px;
 
 // Import partials from the `minima` theme.
 @import "minima";
+
+
+table.table-margin {
+	margin-bottom: 15px;
+}
+
+table.table-code {
+	@extend .table-margin;
+	width: 100%;
+
+	th:first, table td:first {
+		width: 50%;
+	}
+}

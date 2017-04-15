@@ -12,12 +12,25 @@ bundle exec jekyll serve
 bundle show minima
 ```
 
-Tutorial
---------
-Images:
+Kramdown tutorial
+-----------------
+
+```md
+# Images:
 `![My helpful screenshot]({{ site.url }}/assets/screenshot.jpg)`
 
+# Links:
+
+[description][link-slug]
+[link-slug]: https://github.com
+
 {% highlight ruby linenos %}
+{% endhighlight %}
+
+{::options parse_block_html="true" /}
+<pre># yaye</pre>
+{::options parse_block_html="false" /}
+```
 
 TODO
 ----

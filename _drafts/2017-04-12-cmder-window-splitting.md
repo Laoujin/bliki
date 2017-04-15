@@ -47,3 +47,21 @@ PsReadLine Integration
 ----------------------
 
 Rename-Tab
+
+
+
+
+
+
+
+Ga naar Settings > Startup > Tasks (Shortcut: Win + Alt + T)
+ 
+Startup Task voor PitStop
+ 
+>cmd /k ""%ConEmuDir%\..\init.bat" & ng serve" -cur_console:n:d:"C:\Macadam\pitstop\frontend":t:"PitStop-serve"
+powershell -cur_console:s75Hn:d:"C:\Macadam\pitstop":t:"PitStop"
+ 
+Startup Task voor Showroom
+ 
+>cmd /k ""%ConEmuDir%\..\init.bat" & ng serve" -cur_console:n:d:"C:\Macadam\showroom\frontend":t:"Showroom-serve"
+powershell -cur_console:s75Hn:d:"C:\Macadam\showroom":t:"Showroom"
