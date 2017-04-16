@@ -1,251 +1,111 @@
-@font-face {
-	font-family: 'Pacifico';
-	font-style: normal;
-	font-weight: 400;
-	src: local('Pacifico Regular'), local('Pacifico-Regular'), url(https://fonts.gstatic.com/s/pacifico/v9/Q_Z9mv4hySLTMoMjnk_rCfesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
-}
-
-@font-face {
-	font-family: 'Port Lligat Sans';
-	font-style: normal;
-	font-weight: 400;
-	src: local('Port Lligat Sans'), local('PortLligatSans-Regular'), url(https://fonts.gstatic.com/s/portlligatsans/v5/CUEdhRk7oC7up0p6t0g4PzLrmum0cmOWgjO5W8BgBlU.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
-}
-
-@font-face {
-	font-family: 'Oswald';
-	font-style: normal;
-	font-weight: 300;
-	src: local('Oswald Light'), local('Oswald-Light'), url(https://fonts.gstatic.com/s/oswald/v13/HqHm7BVC_nzzTui2lzQTDVtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
-}
-
-
-
-
 a:visited {
 	color: $brand-color;
 }
-
-
-
-
-
-
-
-
-
-
-.site-nav {
-  float: right;
-  line-height: 56px;
-
-  .menu-icon {
-	display: none;
-  }
-
-  .page-link {
-	color: $text-color;
-	line-height: $base-line-height;
-
-	// Gaps between nav items, but not on the last one
-	&:not(:last-child) {
-	  margin-right: 20px;
-	}
-  }
-
-  @include media-query($on-palm) {
-	position: absolute;
-	top: 9px;
-	right: $spacing-unit / 2;
-	background-color: $background-color;
-	border: 1px solid $grey-color-light;
-	border-radius: 5px;
-	text-align: right;
-
-	.menu-icon {
-	  display: block;
-	  float: right;
-	  width: 36px;
-	  height: 26px;
-	  line-height: 0;
-	  padding-top: 10px;
-	  text-align: center;
-
-	  > svg path {
-		fill: $grey-color-dark;
-	  }
-	}
-
-	.trigger {
-	  clear: both;
-	  display: none;
-	}
-
-	&:hover .trigger {
-	  display: block;
-	  padding-bottom: 5px;
-	}
-
-	.page-link {
-	  display: block;
-	  padding: 5px 10px;
-
-	  &:not(:last-child) {
-		margin-right: 0;
-	  }
-	  margin-left: 20px;
-	}
-  }
-}
-
-
-
-/**
- * Site footer
- */
-.site-footer {
-  border-top: 1px solid $grey-color-light;
-  padding: $spacing-unit 0;
-}
-
-.footer-heading {
-  font-size: 18px;
-  margin-bottom: $spacing-unit / 2;
-}
-
-.contact-list,
-.social-media-list {
-  list-style: none;
-  margin-left: 0;
-}
-
-.footer-col-wrapper {
-  font-size: 15px;
-  color: $grey-color;
-  margin-left: -$spacing-unit / 2;
-  @extend %clearfix;
-}
-
-.footer-col {
-  float: left;
-  margin-bottom: $spacing-unit / 2;
-  padding-left: $spacing-unit / 2;
-}
-
-.footer-col-1 {
-  width: -webkit-calc(35% - (#{$spacing-unit} / 2));
-  width:		 calc(35% - (#{$spacing-unit} / 2));
-}
-
-.footer-col-2 {
-  width: -webkit-calc(20% - (#{$spacing-unit} / 2));
-  width:		 calc(20% - (#{$spacing-unit} / 2));
-}
-
-.footer-col-3 {
-  width: -webkit-calc(45% - (#{$spacing-unit} / 2));
-  width:		 calc(45% - (#{$spacing-unit} / 2));
-}
-
-@include media-query($on-laptop) {
-  .footer-col-1,
-  .footer-col-2 {
-	width: -webkit-calc(50% - (#{$spacing-unit} / 2));
-	width:		 calc(50% - (#{$spacing-unit} / 2));
-  }
-
-  .footer-col-3 {
-	width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-	width:		 calc(100% - (#{$spacing-unit} / 2));
-  }
-}
-
-@include media-query($on-palm) {
-  .footer-col {
-	float: none;
-	width: -webkit-calc(100% - (#{$spacing-unit} / 2));
-	width:		 calc(100% - (#{$spacing-unit} / 2));
-  }
-}
-
 
 
 /**
  * Page content
  */
 .page-content {
-  padding: $spacing-unit 0;
+	margin: 0 auto;
+	padding: 0;
+	position: relative;
+	width: 1000px;
+	z-index: 50;
 }
 
-.page-heading {
-  font-size: 20px;
-}
-
-.post-list {
-  margin-left: 0;
-  list-style: none;
-
-  > li {
-	margin-bottom: $spacing-unit;
-  }
-}
-
-.post-meta {
-  font-size: $small-font-size;
-  color: $grey-color;
-}
-
-.post-link {
-  display: block;
-  font-size: 24px;
+@media (max-width: 1000px) {
+	.page-content {
+		max-width: 100%;
+	}
 }
 
 
 
-/**
- * Posts
- */
-.post-header {
-  margin-bottom: $spacing-unit;
+
+
+.hentry {
+	border-radius: 2px;
+	zoom: 1;
 }
 
-.post-title {
-  font-size: 42px;
-  letter-spacing: -1px;
-  line-height: 1;
-
-  @include media-query($on-laptop) {
-	font-size: 36px;
-  }
+.hentry {
+	background-color: rgba(255, 255, 255, .6);
+	margin: 0 0 3.2em;
+	padding: 1.6em;
+	position: relative;
+	z-index: 50;
 }
+
+.hentry:before {
+	background-color: #39aca0;
+	border-radius: 50px 0 0 50px;
+	content: "";
+	display: block;
+	width: 36.6px;
+	height: 67.7px;
+	margin: -5px 0 0 0;
+	position: absolute;
+	left: -36.6px;
+	z-index: 5;
+}
+
+.entry-title, .entry-title a {
+	color: #f38533;
+	font-family: Oswald, sans-serif;
+	font-size: 26px;
+	line-height: 36px;
+	margin: 0;
+	padding: 0;
+	font-weight: 650;
+}
+
+.entry-meta {
+	color: #777;
+	font-family: Oswald, Helvetica, sans-serif;
+	font-size: 13px;
+	text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .post-content {
-  margin-bottom: $spacing-unit;
+	margin-bottom: $spacing-unit;
+	font-family: "Port Lligat Sans", Helvetica, sans-serif;
+	font-weight: 500;
 
-  h2 {
+	h2 {
 	font-size: 32px;
 
 	@include media-query($on-laptop) {
-	  font-size: 28px;
+		font-size: 28px;
 	}
-  }
+	}
 
-  h3 {
+	h3 {
 	font-size: 26px;
 
 	@include media-query($on-laptop) {
-	  font-size: 22px;
+		font-size: 22px;
 	}
-  }
+	}
 
-  h4 {
+	h4 {
 	font-size: 20px;
 
 	@include media-query($on-laptop) {
-	  font-size: 18px;
+		font-size: 18px;
 	}
-  }
+	}
 }

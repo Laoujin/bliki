@@ -47,9 +47,12 @@ $on-laptop:        800px;
 }
 
 @import "_base";
+@import "_fonts";
 @import "_layout";
 @import "_layout-header";
-
+@import "_layout-footer";
+@import "_syntax-highlighting";
+@import "_home";
 
 table.table-margin {
 	margin-bottom: 15px;

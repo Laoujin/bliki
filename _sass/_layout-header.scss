@@ -1,9 +1,7 @@
 .site-header {
-	margin: 0 auto;
-	padding: 0;
-	position: relative;
-	width: 1000px;
-	z-index: 50;
+	@extend .page-content;
+
+	margin-bottom: 50px;
 
 	hgroup {
 		display: inline-block;
@@ -56,11 +54,34 @@
 }
 
 
-@media (max-width: 1000px) {
-	.site-header {
-		max-width: 100%;
-	}
+
+
+
+#fish, #fish-2 {
+	background-attachment: fixed;
+	background-color: transparent;
+	background-repeat: repeat;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	zoom: 1;
 }
+
+#fish {
+	background-image: url(fish.png);
+	background-position: 0 0;
+	z-index: 3;
+}
+
+#fish-2 {
+	background-image: url(fish2.png);
+	background-position: 0 0;
+	z-index: 3;
+}
+
+
 
 
 .main-navigation {
@@ -124,6 +145,4 @@
 	-moz-transition: 0s;
 	word-wrap: break-word;
 	text-decoration: none;
-	font-weight: 600;
-	letter-spacing: 0.8px;
 }
