@@ -1,33 +1,36 @@
-#ocean-floor-background-2 {
-	background-image: url(ground.png);
+#ocean-floor-background {
+	background-image: url(ground-full.png);
 	background-position: left top;
 	background-repeat: repeat-x;
 	margin: -50px auto 0 auto;
-	height: 113px;
+	height: 547px;
 	position: relative;
 	bottom: 0;
 	width: 100%;
 	z-index: 6;
 }
 
-#ocean-floor-background {
-	background-image: url(ground2.png);
-	background-repeat: repeat-x;
-	background-position: left top;
-	clear: both;
-	content: "";
-	display: block;
-	height: 100px;
-	margin: 0 auto;
-	padding: 0;
-	position: relative;
+
+#orangefish-2 {
+	background-image: url(orangefish2.png);
+	background-repeat: no-repeat;
+	background-position: 0 92%;
+	position: absolute;
+	top: 0;
+	left: 0;
 	width: 100%;
-	z-index: 1;
+	height: 100%;
+	z-index: 5;
 }
+
+
+
 
 
 .site-footer {
 	background-color: #3A211E;
+	z-index: 5;
+	padding-top: 75px;
 
 	.wrapper {
 		@extend .page-content;
