@@ -2,7 +2,7 @@
 	background-image: url(ground-full.png);
 	background-position: left top;
 	background-repeat: repeat-x;
-	margin: -50px auto 0 auto;
+	margin: -400px auto 0 auto;
 	height: 547px;
 	position: relative;
 	bottom: 0;
@@ -51,7 +51,7 @@
 .footer-col-wrapper {
   font-size: 15px;
   color: $grey-color;
-  margin-left: -$spacing-unit / 2;
+  //margin-left: -$spacing-unit / 2;
   @extend %clearfix;
 }
 
