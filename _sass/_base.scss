@@ -9,10 +9,6 @@ dl, dd, ol, ul, figure {
 }
 
 
-
-/**
- * Basic styling
- */
 body {
   font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
   color: $text-color;
@@ -46,19 +42,12 @@ hr {
 }
 
 
-/**
- * Images
- */
 img {
   max-width: 100%;
   vertical-align: middle;
 }
 
 
-
-/**
- * Figures
- */
 figure > img {
   display: block;
 }
@@ -68,10 +57,6 @@ figcaption {
 }
 
 
-
-/**
- * Lists
- */
 ul, ol {
   margin-left: $spacing-unit;
 }
@@ -84,19 +69,11 @@ li {
 }
 
 
-
-/**
- * Headings
- */
 h1, h2, h3, h4, h5, h6 {
   font-weight: $base-font-weight;
 }
 
 
-
-/**
- * Links
- */
 a {
   color: $brand-color;
   text-decoration: none;
@@ -111,10 +88,6 @@ a {
 }
 
 
-
-/**
- * Blockquotes
- */
 blockquote {
   color: $grey-color;
   border-left: 4px solid $grey-color-light;
@@ -129,10 +102,6 @@ blockquote {
 }
 
 
-
-/**
- * Code formatting
- */
 pre,
 code {
   font-size: 15px;
@@ -180,4 +149,9 @@ pre {
   path {
     fill: $grey-color;
   }
+}
+
+
+.pull-right {
+	float: right;
 }

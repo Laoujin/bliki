@@ -95,13 +95,13 @@ Update-Database -TargetMigration:SecondLastMigrationName
 # (aliased as List-Migrations or lm)
 $ Get-MigrationsTable | Select-Object -First 5 | Format-Table -AutoSize
 
-Index Name                   Created          FullName
------ ----                   -------          --------
-0     MatchShouldBePlayed    12/24/2016 16:25 201612241625590_MatchShouldBePlayed.cs
--1    MatchFormationComment  12/24/2016 14:34 201612241434105_MatchFormationComment.cs
--2    UserPasswordResetLinks 10/23/2016 18:53 201610231853333_UserPasswordResetLinks.cs
--3    ClubManagerTypes       09/23/2016 20:46 201609232046188_ClubManagerTypes.cs
--4    BlockMatchField        08/18/2016 21:40 201608182140266_BlockMatchField.cs
+Index Name                   Created          FullName  
+----- ----                   -------          --------  
+0     MatchShouldBePlayed    12/24/2016 16:25 201612241625590_MatchShouldBePlayed.cs  
+-1    MatchFormationComment  12/24/2016 14:34 201612241434105_MatchFormationComment.cs  
+-2    UserPasswordResetLinks 10/23/2016 18:53 201610231853333_UserPasswordResetLinks.cs  
+-3    ClubManagerTypes       09/23/2016 20:46 201609232046188_ClubManagerTypes.cs  
+-4    BlockMatchField        08/18/2016 21:40 201608182140266_BlockMatchField.cs  
 
 # Update database to ClubManagerTypes
 $ Update-RealDatabase -3 # Alias: ud -3
