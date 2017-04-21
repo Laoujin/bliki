@@ -18,6 +18,7 @@ Along the way we'll make some amazing discoveries like:
 
 This post assumes familiarity with C#.
 
+<!--more-->
 
 
 Confusingly Different

@@ -6,10 +6,15 @@ categories: dotnet
 tags: [net,date,globalization]
 ---
 
+A cheat sheet with everything there is to know about 
+formatting the primitive types, `DateTime`s and `TimeSpan`s in .NET.
+
+<!--more-->
+
 Stringify
 =========
 
-The different ways of formatting ValueTypes.
+The different ways of formatting these ValueTypes.
 ```c#
 // ValueType.ToString("format");
 Console.Write(5000.ToString("#,##0"));

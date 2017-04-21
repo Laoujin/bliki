@@ -10,6 +10,8 @@ This tutorial is about adding the following functionality to the Entity Framewor
 - Execute commands against the project containing the migrations by providing the most likely -Project parameter value
 - Allow updating the database using a numeric TargetMigration (-2 = migrate to the third last migration)
 
+<!--more-->
+
 Find [the full Nuget_profile.ps1 here][github-nuget-profile]
 
 

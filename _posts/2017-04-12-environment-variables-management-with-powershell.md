@@ -13,6 +13,8 @@ Win + Pause > "Advanced system settings" > "Environment Variables..."
 After which you get a tiny, unresizable, form where you can view and manage them.
 Something better might eventually ship with Windows 2023. Until then, PowerShell :)
 
+<!--more-->
+
 Find [the full ps1 source here][github-powershell-envpath]
 
 Getting environment variables

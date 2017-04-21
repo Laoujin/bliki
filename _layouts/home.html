@@ -11,9 +11,16 @@ layout: default
 			<li>
 
 				<h2 class="entry-title">
-					<a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+					<a href="{{ post.url | relative_url }}">{{post.title | escape}}</a>
 				</h2>
-				<span class="entry-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+				<span class="entry-meta">{{post.date | date: "%b %-d, %Y"}}</span>
+				<small>
+					{% if post.content contains '<!--more-->' %}
+						{{post.content | split:'<!--more-->' | first}}
+					{% else %}
+						{{post.excerpt}}
+					{% endif %}
+				</small>
 			</li>
 		{% endfor %}
 	</ul>

@@ -6,6 +6,10 @@ categories: productivity
 tags: [powershell,windows]
 ---
 
+Where to find and how to reload the different PowerShell profiles.
+
+<!--more-->
+
 Reload PowerShell profile
 ```powershell
 . $profile

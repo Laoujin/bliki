@@ -6,9 +6,12 @@ categories: productivity
 tags: [powershell,git]
 ---
 
-> in the land of blind, the one-eyed man is king
+My PowerShell, Post-Git and .gitconfig color configuration for typical red-green troubles
+with the default configurations.
 
-My color configuration for typical red-green troubles.
+<!--more-->
+
+> in the land of blind, the one-eyed man is king
 
 PowerShell
 ==========
