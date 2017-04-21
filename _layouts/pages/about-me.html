@@ -4,6 +4,11 @@ layout: default
 <article class="hentry">
 
 	<div class="split">
+		<div>
+			{% capture aboutMe %}{% include pages/about-me.md %}{% endcapture %}
+			{{aboutMe | markdownify}}
+		</div>
+
 		<div class="post-content">
 			<img src="{{site.url}}/assets/img/me.png" class="split-img">
 			<div>
@@ -21,11 +26,6 @@ layout: default
 
 			<div style="clear: both; "></div>
 			{{content}}
-		</div>
-
-		<div>
-			{% capture aboutMe %}{% include pages/about-me.md %}{% endcapture %}
-			{{aboutMe | markdownify}}
 		</div>
 	</div>
 

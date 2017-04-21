@@ -8,9 +8,9 @@
 		margin: auto;
 	}
 	.split > div:first-child {
-		float: left;
-		width: 70%;
-		margin-right: 10px;
+		float: right;
+		width: 30%;
+		margin-left: 50px;
 	}
 	.split > div:nth-child(2) {
 		overflow: hidden;
