@@ -1,5 +1,5 @@
 ---
-layout: about-me
+layout: pages/about-me
 title: About pongit
 permalink: /about
 ---

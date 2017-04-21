@@ -45,11 +45,11 @@ $on-laptop:        800px;
 @import "vendor/_fonts";
 @import "vendor/_syntax-highlighting";
 
-@import "layout/_general";
-@import "layout/_page";
-@import "layout/_header";
-@import "layout/_footer";
+@import "layout/general";
+@import "layout/page";
+@import "layout/header";
+@import "layout/footer";
 
-@import "_tables";
-@import "_home";
-@import "_about-me";
+@import "tables";
+@import "home";
+@import "about-me";
