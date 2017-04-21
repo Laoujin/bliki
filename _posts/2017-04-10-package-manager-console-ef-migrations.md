@@ -22,17 +22,17 @@ Activating your Nuget_profile
 -----------------------------
 When opening the Package Manager Console (PMC) in Visual Studio, the profile file is executed.
 
-{% highlight cmd %}
+```cmd
 %USERPROFILE%\Documents\WindowsPowerShell\NuGet_profile.ps1
-{% endhighlight %}
+```
 
 You can reload the NuGet_profile.ps1 file using `. $profile` in the PMC.
 
 The following aliases allow you to install a package with just `ip EntityFramework`:  
-{% highlight powershell %}
+```powershell
 Set-Alias ip Install-Package
 Set-Alias unip Uninstall-Package
-{% endhighlight %}
+```
 
 
 * * *
@@ -44,7 +44,7 @@ There is (unfortunately) no way to configure the "Default project" in the PMC. T
 for each existing cmdlet and adds a short alias to these commands. Which project contains the migrations is by convention,
 as determined by `$isLikelyDbContextProject`.
 
-{% highlight powershell %}
+```powershell
 # Execute commands against first ProjectName to end with one of these:
 $isLikelyDbContextProject = ".DataAccess", ".Back"
 
@@ -64,10 +64,10 @@ Set-Alias am Add-RealMigration
 
 # Usage
 am AddedBlogTable
-{% endhighlight %}
+```
 
 The entire list of aliases:  
-{% highlight powershell %}
+```powershell
 Set-Alias em Enable-RealMigrations
 Set-Alias am Add-RealMigration
 Set-Alias ad Add-RealMigration
@@ -76,7 +76,7 @@ Set-Alias udv Update-RealDatabaseVerbosely
 Set-Alias gam Get-AppliedMigrations
 Set-Alias lm List-Migrations # List last $listMigrationsCount
 Set-Alias lam List-AllMigrations
-{% endhighlight %}
+```
 
 
 * * *
@@ -85,12 +85,12 @@ Set-Alias lam List-AllMigrations
 Updating the database using a numeric TargetMigration
 -----------------------------------------------------
 Easily go back to a specific migration using `ud -1` instead of
-{% highlight powershell %}
+```powershell
 Update-Database -TargetMigration:SecondLastMigrationName
-{% endhighlight %}
+```
 
 ### Example
-{% highlight powershell %}
+```powershell
 # List last 5 migrations:
 # (aliased as List-Migrations or lm)
 $ Get-MigrationsTable | Select-Object -First 5 | Format-Table -AutoSize
@@ -108,7 +108,7 @@ $ Update-RealDatabase -3 # Alias: ud -3
 
 # Update database to latest migration (MatchShouldBePlayed)
 $ Update-RealDatabase 0 # Alias: ud
-{% endhighlight %}
+```
 
 **Attention**:  
 This completely ignores whatever may be the last migration that was applied to the database.
@@ -117,7 +117,7 @@ Having `Update-RealDatabase -1` go back to the "last *applied* migration - 1" in
 thing considerably slower. (FileSystem vs Sql query)
 
 ### Source
-{% highlight powershell %}
+```powershell
 function Get-MigrationsTable {
 	$project = Get-DbContextProject
 	$projectPath = Split-Path -Path $project.FullName
@@ -158,7 +158,7 @@ function Update-RealDatabase([int]$targetMigration = 0) {
 function Test-MigrationName($fileName) {
 	return $fileName -match "^(\d[^.]+)\.(cs|vb)$"
 }
-{% endhighlight %}
+```
 
 
 * * *
