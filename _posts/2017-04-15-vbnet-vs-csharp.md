@@ -138,7 +138,6 @@ So yes, `Date` does have a time part.
 | s1 Is s2                        | Object.ReferenceEquals(s1, s2)
 | Dim c = TryCast(s, Circle)      | var c = s as Circle;
 | c = DirectCast(s, Circle)       | c = (Circle)s;
-|                                 |                                 |
 {: .table-code}
 
 Aside from CLng, VB.NET also has: CInt, CDate, CStr, CByte, CDbl, CBool, CObj, Chr.
@@ -148,7 +147,7 @@ so `Conversion.Int(x)` is available as `Int(x)` without Import.
 
 ### Operators, Strings
 
-| VB.NET                          | C#
+| VB.NET                          | C#                              |
 |---------------------------------|---------------------------------|
 | Comparison
 | <> =  <  >  <=  >=              | != ==  <  >  <=  >=  
@@ -170,7 +169,6 @@ so `Conversion.Int(x)` is available as `Int(x)` without Import.
 | Concatenation: &                | +
 | Escape quote: ""                | \\"
 | vbCrLf, vbTab, ...              | \r\n, \t, ...
-|                                 |                                 |
 {: .table-margin}
 
 
@@ -185,7 +183,6 @@ the evalusations. Ex: `If x IsNot Nothing And x.Trigger() Then` will crash.
 |---------------------------------|---------------------------------|
 | Dim i = If(y, 5)                | var i = y ?? 5;
 | Dim x = If(i > 0, "t", "f")     | var x = i > 0 ? "t" : "f"
-|                                 |                                 |
 {: .table-code}
 
 
@@ -461,7 +458,7 @@ Dim peopleByAge =
 | Dim nums() As Integer = {1, 2, 3}
 | Dim names(4) As String ' 5 elements        | var names = new string[5];
 | ReDim Preserve names(6) ' Preserve optional| Array.Resize(ref names, 7);
-| -------------------------------------------| -------------------------------------------|
+|                                            |                                            |
 | Dim h = New Hero With {.Name = "Deadpool"} | var h = new Hero() {Name = "Deadpool"};
 |--------------------------------------------|--------------------------------------------|
 {: .table-code}
