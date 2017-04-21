@@ -6,7 +6,7 @@ categories: productivity
 tags: [powershell,git]
 ---
 
-My PowerShell, Posh-Git and .gitconfig color configuration for typical red-green troubles
+My PowerShell, Posh-Git and .gitconfig color configuration because of some red-green troubles
 with the default configurations.
 
 <!--more-->
