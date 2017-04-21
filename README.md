@@ -10,7 +10,26 @@ bundle exec jekyll serve
 
 # Show theme path
 bundle show minima
+
+# New plugin
+# Add to _config.yml and Gemfile
+bundle install
 ```
+
+TODO: format tables like on GitHub
+TODO: posts: add tags
+
+
+--> grr the _includes are not overwriting the defaults with the switch to GitHub pages
+
+
+https://github.com/jekyll/github-metadata#authentication
+JEKYLL_GITHUB_TOKEN=123abc [bundle exec] jekyll serve
+https://help.github.com/articles/adding-jekyll-plugins-to-a-github-pages-site/
+https://jekyllrb.com/docs/plugins/
+
+
+
 
 Kramdown tutorial
 -----------------
