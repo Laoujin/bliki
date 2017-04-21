@@ -154,18 +154,18 @@ so `Conversion.Int(x)` is available as `Int(x)` without Import.
 | And   Or   Xor   Not   <<   >>  | &   \|   ^   ~   <<   >>
 | AndAlso   OrElse  Not           | &&   \|\|   !
 | x Is Nothing Or y IsNot Nothing | x == null \| y != null
-|
-| Arithmetic
+|                                 |
+| Arithmetic                      |
 | +  -  *  /                      | Same
 | Mod                             | %
 | \  (integer division)           | 
 | ^  (raise to a power)           | Math.Pow
-|
-| Assignment
+|                                 |
+| Assignment                      |
 | =  +=  -=, ...                  | = += -=, ...
 |                                 | ++ --
-|
-| Strings
+|                                 |
+| Strings                         |
 | Concatenation: &                | +
 | Escape quote: ""                | \\"
 | vbCrLf, vbTab, ...              | \r\n, \t, ...
