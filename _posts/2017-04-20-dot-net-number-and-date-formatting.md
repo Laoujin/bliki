@@ -94,14 +94,14 @@ decimal m = 1000.5050M;
 string pretty = money.ToString(SomeFormat);
 ```
 
-| SomeFormat | Name         | Result en-US | Result nl-BE |  
-|---------------------------------------------------------|  
-| C          | Currency     | $1,000.51    | € 1.000,51  
-| C0         |              | $1,001       | € 1.001  
-| C3         |              | $1,000.505   | € 1.000,505  
-| P          | Percent      | 100,050.50 % | 100 050,50%  
-| 0.5 ("P1") |              | 50.0 %       | 50,0%  
-| N          | Number       | 1,000.51     | 1 000,51  
+| SomeFormat | Name         | Result en-US | Result nl-BE |
+|------------|--------------|--------------|--------------|
+| C          | Currency     | $1,000.51    | € 1.000,51   |
+| C0         |              | $1,001       | € 1.001      |
+| C3         |              | $1,000.505   | € 1.000,505  |
+| P          | Percent      | 100,050.50 % | 100 050,50%  |
+| 0.5 ("P1") |              | 50.0 %       | 50,0%        |
+| N          | Number       | 1,000.51     | 1 000,51     |
 {: .table-code}
 
 `SomeFormat` is case insensitive. All standard numeric formats
