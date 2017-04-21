@@ -460,7 +460,6 @@ Dim peopleByAge =
 | ReDim Preserve names(6) ' Preserve optional| Array.Resize(ref names, 7);
 |                                            |                                            |
 | Dim h = New Hero With {.Name = "Deadpool"} | var h = new Hero() {Name = "Deadpool"};
-|--------------------------------------------|--------------------------------------------|
 {: .table-code}
 
 
