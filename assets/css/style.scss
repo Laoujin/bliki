@@ -52,17 +52,5 @@ $on-laptop:        800px;
 @import "_layout-header";
 @import "_layout-footer";
 @import "_syntax-highlighting";
+@import "_tables";
 @import "_home";
-
-table.table-margin {
-	margin-bottom: 15px;
-}
-
-table.table-code {
-	@extend .table-margin;
-	width: 100%;
-
-	th:first, table td:first {
-		width: 50%;
-	}
-}

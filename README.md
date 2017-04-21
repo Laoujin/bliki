@@ -18,9 +18,7 @@ bundle install
 
 TODO: format tables like on GitHub
 TODO: posts: add tags
-
-
---> grr the _includes are not overwriting the defaults with the switch to GitHub pages
+TODO: About: 2 content panes
 
 
 https://github.com/jekyll/github-metadata#authentication
