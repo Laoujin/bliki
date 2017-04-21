@@ -124,34 +124,3 @@ pre {
     padding-left: 0;
   }
 }
-
-
-
-
-/**
- * Clearfix
- */
-%clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-
-
-/**
- * Icons
- */
-.icon > svg {
-  display: inline-block;
-  vertical-align: middle;
-
-  path {
-    fill: $grey-color;
-  }
-}
-
-
-.pull-right {
-	float: right;
-}

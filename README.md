@@ -16,7 +16,6 @@ bundle show minima
 bundle install
 ```
 
-TODO: format tables like on GitHub
 TODO: posts: add tags
 TODO: About: 2 content panes
 

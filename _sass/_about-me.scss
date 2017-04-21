@@ -1,0 +1,24 @@
+.split-img {
+	padding: 8px;
+}
+
+@media (min-width: 800px) {
+	.split {
+		width: 100%;
+		margin: auto;
+	}
+	.split > div:first-child {
+		float: left;
+		width: 70%;
+		margin-right: 10px;
+	}
+	.split > div:nth-child(2) {
+		overflow: hidden;
+	}
+}
+
+@media (min-width: 650px) {
+	.split-img {
+		float: left;
+	}
+}

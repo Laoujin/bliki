@@ -35,22 +35,21 @@ $on-laptop:        800px;
 //     }
 // }
 
-
-// Import partials from the `minima` theme.
-//@import "minima";
-
-
 @mixin media-query($device) {
   @media screen and (max-width: $device) {
     @content;
   }
 }
 
-@import "_base";
-@import "_fonts";
-@import "_layout";
-@import "_layout-header";
-@import "_layout-footer";
-@import "_syntax-highlighting";
+@import "vendor/_base";
+@import "vendor/_fonts";
+@import "vendor/_syntax-highlighting";
+
+@import "layout/_general";
+@import "layout/_page";
+@import "layout/_header";
+@import "layout/_footer";
+
 @import "_tables";
 @import "_home";
+@import "_about-me";

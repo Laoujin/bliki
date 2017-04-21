@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<article class="hentry">
+
+	<div class="split">
+		<div class="post-content">
+			<img src="{{site.url}}/assets/img/me.png" class="split-img">
+			<div>
+				A driven and flexible .NET generalist who has turned a childhood hobby into his career.
+
+				<br><br>
+
+				Developer, architect, Certified Scrum Master and avid pingpong/squash player.
+
+				<br><br>
+
+				I am interested in pretty much everything IT but I'm especially excited about
+				software design, documentation, continuous integration, usability and consistency.
+			</div>
+
+			<div style="clear: both; "></div>
+			{{content}}
+		</div>
+
+		<div>
+			{% capture aboutMe %}{% include about-me.md %}{% endcapture %}
+			{{aboutMe | markdownify}}
+		</div>
+	</div>
+
+</article>
