@@ -211,7 +211,7 @@ var dto = new DateTimeOffset(dt, TimeSpan.FromHours(2));
 ### Custom Date and Time Format Strings
 
 | Specifier | Description             |
-|-------------------------------------|
+|-----------|-------------------------|
 | Date
 | d         | Day of month (1 -> 31)
 | dd        | 01 -> 31
@@ -263,7 +263,7 @@ var span = new TimeSpan(31, 22, 15, 59);
 ```
 
 | Specifier | Format                          | Result                  |
-|-----------------------------------------------------------------------|
+|-----------|---------------------------------|-------------------------|
 | c         | [d'.']hh':'mm':'ss['.'fffffff]  | 31.22:15:59
 | g         | [-][d':']h':'mm':'ss[.FFFFFFF]  | 31:22:15:59
 | G         | [-]d':'hh':'mm':'ss.fffffff     | 31:22:15:59.0000000
