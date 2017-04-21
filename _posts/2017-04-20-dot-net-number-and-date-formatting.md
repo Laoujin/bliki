@@ -133,13 +133,13 @@ Other standard numeric formats:
 ### Custom formats:
 
 | Specifier | Description                                        |
-|----------------------------------------------------------------|
-| 0         | Zero placeholder (force display)
-| #         | Digit placeholder (do not display non-significant)
-| .         | Decimal point
-| ,         | Thousands separator
-| \         | Escape next character
-| 'string'  | Escape entire string
+|-----------|----------------------------------------------------|
+| 0         | Zero placeholder (force display)                   |
+| #         | Digit placeholder (do not display non-significant) |
+| .         | Decimal point                                      |
+| ,         | Thousands separator                                |
+| \         | Escape next character                              |
+| 'string'  | Escape entire string                               |
 {: .table-margin}
 
 ```c#
@@ -177,14 +177,14 @@ var dt = new DateTime(2017, 1, 31, 22, 15, 59);
 ```
 
 | Format | Name                 | Result en-US                                | Result nl-BE                     |
-|----------------------------------------------------------------------------------------------------------------|
-| d      | Short date           | 1/31/2017                                   | 31/01/2017
-| D      | Long date            | Tuesday, January 31, 2017                   | dinsdag 31 januari 2017
-| f      | Full (short time)    | Tuesday, January 31, 2017 10:15 PM          | dinsdag 31 januari 2017 22:15
-| F      | Full (long time)     | Tuesday, January 31, 2017 10:15:59 PM       | dinsdag 31 januari 2017 22:15:59
-| U      | Universal full       | Like "F" but converted to UTC
-| g      | General (short time) | 1/31/2017 10:15 PM                          | 31/01/2017 22:15
-| G      | General (long time)  | 1/31/2017 10:15:59 PM                       | 31/01/2017 22:15:59
+|--------|----------------------|---------------------------------------------|----------------------------------|
+| d      | Short date           | 1/31/2017                                   | 31/01/2017                       |
+| D      | Long date            | Tuesday, January 31, 2017                   | dinsdag 31 januari 2017          |
+| f      | Full (short time)    | Tuesday, January 31, 2017 10:15 PM          | dinsdag 31 januari 2017 22:15    |
+| F      | Full (long time)     | Tuesday, January 31, 2017 10:15:59 PM       | dinsdag 31 januari 2017 22:15:59 |
+| U      | Universal full       | Like "F" but converted to UTC               |                                  |
+| g      | General (short time) | 1/31/2017 10:15 PM                          | 31/01/2017 22:15                 |
+| G      | General (long time)  | 1/31/2017 10:15:59 PM                       | 31/01/2017 22:15:59              |
 | 
 | Partials
 | M / m  | Month/day            | January 31                                  | 31 januari
