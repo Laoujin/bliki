@@ -17,10 +17,11 @@ Kramdown tutorial
 
 ```md
 # Images:
-`![My helpful screenshot]({{ site.url }}/assets/screenshot.jpg)`
+![My helpful screenshot]({{ site.url }}/assets/screenshot.jpg)
+
 
 # Links:
-
+```
 [description][link-slug]
 [link-slug]: https://github.com
 
