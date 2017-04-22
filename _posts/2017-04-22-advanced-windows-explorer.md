@@ -101,15 +101,18 @@ Get-ChildItem $path | Select-Object `
 
 
 
-<!-- * * *
+<!--
+ * * *
 
 
 Configuration
 =============
 Registry edits for:
 - TODO: Open (admin) prompt here ==> need folded pre block
-- TODO: Manage ContextMenu and NewMenu -->
+- TODO: Manage ContextMenu and NewMenu 
 
+https://blogs.msdn.microsoft.com/andrew_richards/2017/03/01/enhancing-the-open-command-prompt-here-shift-right-click-context-menu-experience/
+-->
 
 * * *
 
