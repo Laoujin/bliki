@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Advanced Windows Explorer"
-date:   2017-04-22 20:00:00 +0200
+date:   2017-04-22 02:00:00 +0200
 categories: productivity
 tags: [autohotkey,powershell,windows]
 ---
