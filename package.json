@@ -1,0 +1,19 @@
+{
+  "name": "bliki",
+  "version": "1.0.0",
+  "description": "pongit.be",
+  "main": "index.js",
+  "scripts": {
+    "start": "bundle exec jekyll serve --drafts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/be-pongit/be-pongit.github.io.git"
+  },
+  "author": "Wouter Van Schandevijl <woutervs@hotmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/be-pongit/be-pongit.github.io/issues"
+  },
+  "homepage": "https://pongit.be"
+}

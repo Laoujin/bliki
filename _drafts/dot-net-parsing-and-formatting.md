@@ -6,6 +6,8 @@ categories: dotnet
 tags: [net]
 ---
 
+<!--more-->
+
 Separate post: DateTime formatting: .NET vs MomentJS?
 
 

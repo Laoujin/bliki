@@ -12,3 +12,5 @@ Get-Members
 Get-Help
 
 help about_*
+
+<!--more-->

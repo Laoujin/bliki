@@ -6,7 +6,8 @@ pongit.be
 gem install jekyll bundler
 
 # run:
-bundle exec jekyll serve
+npm start
+bundle exec jekyll serve --drafts
 
 # Show theme path
 bundle show minima

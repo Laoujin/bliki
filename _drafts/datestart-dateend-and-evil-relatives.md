@@ -7,6 +7,8 @@ tags: [design patterns]
 ---
 
 
+<!--more-->
+
 or one of their equally evil brothers: “DateStart & TimeSpan” or “Day/Month only in DateTime”, etc.
 
 --> Especially for ValueTypes found in the Business!

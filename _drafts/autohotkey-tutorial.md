@@ -1,16 +1,19 @@
 ---
 layout: post
 title:  "Auothotkey Tutorial"
-date:   2017-04-12 15:00:00 +0200
+date:   2017-04-22 02:00:00 +0200
 categories: productivity
 tags: [autohotkey]
 ---
 
-Three options:
+Three options:  
 
 Scripts 
 Custom hotkeys 
 and hotstrings
+
+
+<!--more-->
 
 
 http://lifehacker.com/316589/turn-any-action-into-a-keyboard-shortcut

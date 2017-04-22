@@ -5,6 +5,8 @@ date:   2017-04-12 15:00:00 +0200
 categories: productivity
 ---
 
+<!--more-->
+
 http://www.shortcutmania.com/Windows-7-Keyboard-Shortcuts-printable-cheatsheet.htm
 https://support.microsoft.com/en-us/help/12445/windows-keyboard-shortcuts
 
