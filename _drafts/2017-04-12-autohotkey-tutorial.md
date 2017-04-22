@@ -13,6 +13,10 @@ Custom hotkeys
 and hotstrings
 
 
+http://lifehacker.com/316589/turn-any-action-into-a-keyboard-shortcut
+howtogeek.com
+
+
 
 
 Difference between Autohotkey & Autohotkey_L

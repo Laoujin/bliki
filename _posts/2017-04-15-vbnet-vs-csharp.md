@@ -32,6 +32,10 @@ Or some fun issues during heavy context switching :)
 
 
 
+* * *
+
+
+
 Syntax comparison
 -----------------
 
@@ -523,6 +527,9 @@ End Function
 ```
 
 
+* * *
+
+
 
 Dangers of VB6 Legacy
 ---------------------
@@ -607,6 +614,10 @@ It's probably a good idea to steer away from these and stick to System.IO and St
 
 
 
+* * *
+
+
+
 Available in C# only
 --------------------
 The only real blocker against VB.NET is unsafe and checked/unchecked code.
@@ -620,6 +631,10 @@ This somewhat changes with C# 7 features that have not been implemented for VB.N
 - Pattern Matching: `o is int i`, switch
 - `return ref x;`
 - Tuples
+
+
+
+* * *
 
 
 
@@ -696,6 +711,10 @@ Dim nowNodeText = nowNode.Value
 ```
 
 
+* * *
+
+
+
 Convertion troubles
 -------------------
 While there are some online converters, they are not at all up to date, or very smart.
@@ -707,6 +726,10 @@ They do not provide much more than a starting point.
 - Using an array accessor in VB.NET (`arr(0)` vs `arr[0]`) results in an incorrect translation
 - "Newer" features, like lambdas are converted to dynamic, or not at all
 - Use any VB.NET or C# only feature and they won't even make an attempt at converting it
+
+
+
+* * *
 
 
 

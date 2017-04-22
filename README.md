@@ -25,7 +25,14 @@ JEKYLL_GITHUB_TOKEN=123abc [bundle exec] jekyll serve
 https://help.github.com/articles/adding-jekyll-plugins-to-a-github-pages-site/
 https://jekyllrb.com/docs/plugins/
 
+Liquid
+------
+https://help.shopify.com/themes/liquid
+https://github.com/Shopify/liquid/wiki/Liquid-for-Designers
 
+
+**Keyboard Glyphs**:  
+BUG: Shortcut containing a + or ,
 
 
 Kramdown tutorial

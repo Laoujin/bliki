@@ -11,6 +11,7 @@ formatting the primitive types, `DateTime`s and `TimeSpan`s in .NET.
 
 <!--more-->
 
+
 Stringify
 =========
 
@@ -58,6 +59,9 @@ Methuselah | 969.00
 ```
 
 
+* * *
+
+
 
 Cultures
 ========
@@ -83,6 +87,8 @@ CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
 CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en-US");
 ```
 
+
+* * *
 
 
 Number Formatting
@@ -164,6 +170,8 @@ Other standard numeric formats:
 8009999999.ToString("000-000-0000"); // 800-999-9999
 ```
 
+
+* * *
 
 
 Date Formatting

@@ -15,8 +15,6 @@ This tutorial is about adding the following functionality to the Entity Framewor
 Find [the full Nuget_profile.ps1 here][github-nuget-profile]
 
 
-* * *
-
 
 Activating your Nuget_profile
 -----------------------------

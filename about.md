@@ -16,7 +16,7 @@ Not sure what this will become, really. A blog for sure but I do plan to revisit
 when new information becomes available, or rework them should I've changed my mind about some aspects.  
 
 The original plan was to blog about the 70 Pragmatic Programmer tips but it looks like I've started with posting
-tutorials I've accumulated in the last years. Old blog drafts, written notes etc might also be reworked and posted
+tutorials I've accumulated in the last years instead. Old blog drafts, written notes etc might also be reworked and posted
 (if the subject is still relevant:).
 
 

@@ -39,6 +39,10 @@ $env:PATH
 [environment]::GetEnvironmentVariable("PATH", "User")
 ```
 
+In cmd.exe, all envs can be listed with `set`.
+
+
+* * *
 
 
 Managing environment variables
@@ -96,6 +100,8 @@ function Refresh-Environment {
 }
 ```
 
+
+* * *
 
 
 $env:PATH helpers
@@ -171,6 +177,8 @@ function Remove-EnvironmentPath {
 }
 ```
 
+
+* * *
 
 
 Useful environment variables
