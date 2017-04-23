@@ -11,7 +11,7 @@ with the default configurations.
 
 <!--more-->
 
-> in the land of blind, the one-eyed man is king
+> in the land of the blind, the one-eyed man is king
 
 
 PowerShell
