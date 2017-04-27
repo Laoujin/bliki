@@ -11,6 +11,8 @@ tags: [design patterns]
 
 or one of their equally evil brothers: “DateStart & TimeSpan” or “Day/Month only in DateTime”, etc.
 
+> This is the case for the ValueObject
+
 --> Especially for ValueTypes found in the Business!
 --> StartDate, StartBy, ExecutedDate, ExecutedBy, ReviewedDate, ReviewedBy: class Task
 ---> func Start(id by) { StartBy = id; StartDate = DateTime.Now }
@@ -28,7 +30,7 @@ Not creating a value object for coherent pairs of value types is a missed opport
 
 You end up creating all sorts of helper classes for often sought after functionality, which might even be duplicated as they are being implemented by different programmers.
 
-
+- Expressiveness
 
 What we need in case of DateStart and DateEnd variables: IsIn(DateTime);
 
