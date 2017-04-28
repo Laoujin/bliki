@@ -4,6 +4,7 @@ title:  "Create Excels with C# and EPPlus: A tutorial"
 date:   2017-04-26 22:00:00 +0200
 categories: dotnet
 tags: [net,excel]
+permalink: /nuget/epplus/
 ---
 
 Quick tutorial about creating xlsx Excels with
@@ -11,20 +12,41 @@ C# and the [EPPlus nuget package][epplus-nuget].
 
 > EPPlus Excel addresses are not zero based: The first column is column 1!
 
+Some things that are hiding in plain sight:
+- ExcelRange.LoadFromCollection()
+- sheet.Cells.AutoFitColumns()
+<!--TODO: Expand basic usage example so that the most common stuff is covered-->
+
+Before writing any loops, you might want to check out the `LoadFromXXX` methods.
+
 <!--more-->
 
 Did you know: It is a successor to ExcelPackage, hence the name.  
 (this should come in a cool <aside>)
 
+While it's often not easy to find EPPlus examples online, the source code does
+contain a whole bunch of extensive examples. Be sure to check them out.
+
+
+Everything covered works with LibreOffice 5.0. EPPlus covers things that LibreOffice
+doesn't seem to know how to handle. For example:
+
+- Graphs
+- LoadFromCollection `TableStyles`
+- Style.VerticalAlignment
+- sheet.View.PageLayoutView = true
+- sheet.Hidden = eWorkSheetHidden.VeryHidden
+
 Setup
-===========
+=====
 ```
-Install-Package EEPlus
+Install-Package EPPlus
 ```
 
 Examples
 ========
-[All code examples][github-project] can be found in the GitHub project.
+The blog posts will only cover the most important functionality.
+[More extensive code examples][github-project] can be found in the GitHub project.
 
 Basic Usage
 -----------
@@ -33,10 +55,10 @@ using OfficeOpenXml;
 
 using (var package = new ExcelPackage())
 {
-	ExcelWorksheet sheet1 = package.Workbook.Worksheets.Add("MySheet");
-	ExcelRange firstCell = sheet1.Cells[1, 1]; // or use "A1"
+	ExcelWorksheet sheet = package.Workbook.Worksheets.Add("MySheet");
+	ExcelRange firstCell = sheet.Cells[1, 1]; // or use "A1"
 	firstCell.Value = "will it work...";
-	sheet1.Cells.AutoFitColumns();
+	sheet.Cells.AutoFitColumns();
 	package.SaveAs(new FileInfo(@"basicUsage.xslx"));
 }
 ```
@@ -49,7 +71,7 @@ create a new one when `package.Save()` is called.
 using (var package = new ExcelPackage(new FileInfo(@"openingandsaving.xslx"), "optionalPassword"))
 using (var basicUsageExcel = File.Open(@"basicUsage.xslx"), FileMode.Open))
 {
-	var sheet = package.Workbook.Worksheets.Add("Sheet1");
+	var sheet = package.Workbook.Worksheets.Add("sheet");
 	sheet.Cells["D1"].Value = "Everything in the package will be overwritten";
 	sheet.Cells["D2"].Value = "by the package.Load() below!!!";
 
@@ -68,30 +90,42 @@ Selecting cells
 ```c#
 using (var package = new ExcelPackage())
 {
-	ExcelWorksheet sheet1 = package.Workbook.Worksheets.Add("MySheet");
+	ExcelWorksheet sheet = package.Workbook.Worksheets.Add("MySheet");
 
 	// One cell
-	ExcelRange cellA2 = sheet1.Cells["A2"];
-	var alsoCellA2 = sheet1.Cells[2, 1];
+	ExcelRange cellA2 = sheet.Cells["A2"];
+	var alsoCellA2 = sheet.Cells[2, 1];
 	Assert.That(cellA2.Address, Is.EqualTo("A2"));
 	Assert.That(cellA2.Address, Is.EqualTo(alsoCellA2.Address));
 
 	// Column from a cell
 	// ExcelRange.Start is the top and left most cell
 	Assert.That(cellA2.Start.Column, Is.EqualTo(1));
-	// To really get the column: sheet1.Column(1)
+	// To really get the column: sheet.Column(1)
 
 	// A range
-	ExcelRange ranger = sheet1.Cells["A2:C5"];
-	var sameRanger = sheet1.Cells[2, 1, 5, 3];
+	ExcelRange ranger = sheet.Cells["A2:C5"];
+	var sameRanger = sheet.Cells[2, 1, 5, 3];
 	Assert.That(ranger.Address, Is.EqualTo(sameRanger.Address));
 
+	//sheet.Cells["A1,A4"] // Just A1 and A4
+	//sheet.Cells["1:1"] // A row
+	//sheet.Cells["A:B"] // Two columns
+
+	// Linq
+	var l = sheet.Cells["A1:A5"].Where(range => range.Comment != null);
+
 	// Dimensions used
-	Assert.That(sheet1.Dimension, Is.Null);
+	Assert.That(sheet.Dimension, Is.Null);
 
 	ranger.Value = "pushing";
-	var usedDimensions = sheet1.Dimension;
+	var usedDimensions = sheet.Dimension;
 	Assert.That(usedDimensions.Address, Is.EqualTo(ranger.Address));
+
+	// Offset: down 5 rows, right 10 columns
+	var movedRanger = ranger.Offset(5, 10);
+	Assert.That(movedRanger.Address, Is.EqualTo("K7:M10"));
+	movedRanger.Value = "Moved";
 
 	package.SaveAs(new FileInfo(@""));
 }
@@ -102,36 +136,48 @@ Writing Values
 ```c#
 using (var package = new ExcelPackage())
 {
-	ExcelWorksheet sheet1 = package.Workbook.Worksheets.Add("MySheet");
+	ExcelWorksheet sheet = package.Workbook.Worksheets.Add("MySheet");
+
+	// Format as text
+	sheet.Cells["A1"].Style.Numberformat.Format = "@";
 
 	// Numbers
-	sheet1.SetValue("A1", "Numbers");
-	Assert.That(sheet1.GetValue<string>(1, 1), Is.EqualTo("Numbers"));
-	sheet1.Cells["B1"].Value = 15.32;
-	sheet1.Cells["B1"].Style.Numberformat.Format = "#,##0.00";
-	Assert.That(sheet1.Cells["B1"].Text, Is.EqualTo("15.32"));
+	sheet.SetValue("A1", "Numbers");
+	Assert.That(sheet.GetValue<string>(1, 1), Is.EqualTo("Numbers"));
+	sheet.Cells["B1"].Value = 15.32;
+	sheet.Cells["B1"].Style.Numberformat.Format = "#,##0.00";
+	Assert.That(sheet.Cells["B1"].Text, Is.EqualTo("15.32"));
+
+	// Percentage
+	sheet.Cells["C1"].Value = 0.5;
+	sheet.Cells["C1"].Style.Numberformat.Format = "0%";
+	Assert.That(sheet.Cells["C1"].Text, Is.EqualTo("50%"));
 
 	// Money
-	sheet1.Cells["A2"].Value = "Moneyz";
-	sheet1.Cells["B2"].Value = 15000.23D;
-	sheet1.Cells["C2"].Value = -2000.50D;
-	sheet1.Cells["B2:C2"].Style.Numberformat.Format = "#,##0.00 [$€-813];[RED]-#,##0.00 [$€-813]";
+	sheet.Cells["A2"].Value = "Moneyz";
+	sheet.Cells["B2,D2"].Value = 15000.23D;
+	sheet.Cells["C2,E2"].Value = -2000.50D;
+	sheet.Cells["B2:C2"].Style.Numberformat.Format = "#,##0.00 [$€-813];[RED]-#,##0.00 [$€-813]";
+	sheet.Cells["D2:E2"].Style.Numberformat.Format = "[$$-409]#,##0";
 
 	// DateTime
-	sheet1.Cells["A3"].Value = "Timey Wimey";
-	sheet1.Cells["B3"].Style.Numberformat.Format = "yyyy-mm-dd";
-	sheet1.Cells["B3"].Formula = $"=DATE({DateTime.Now:yyyy,MM,dd})";
-	sheet1.Cells["C3"].Style.Numberformat.Format = DateTimeFormatInfo.CurrentInfo.FullDateTimePattern;
-	sheet1.Cells["C3"].Value = DateTime.Now;
-	sheet1.Cells["D3"].Style.Numberformat.Format = "dd/MM/yyyy HH:mm";
-	sheet1.Cells["D3"].Value = DateTime.Now;
+	sheet.Cells["A3"].Value = "Timey Wimey";
+	sheet.Cells["B3"].Style.Numberformat.Format = "yyyy-mm-dd";
+	sheet.Cells["B3"].Formula = $"=DATE({DateTime.Now:yyyy,MM,dd})";
+	sheet.Cells["C3"].Style.Numberformat.Format = DateTimeFormatInfo.CurrentInfo.FullDateTimePattern;
+	sheet.Cells["C3"].Value = DateTime.Now;
+	sheet.Cells["D3"].Style.Numberformat.Format = "dd/MM/yyyy HH:mm";
+	sheet.Cells["D3"].Value = DateTime.Now;
 
-	// A hyperlink
-	sheet1.Cells["C25"].Formula = "HYPERLINK(\"mailto:support@pongit.be\",\"Contact support\")";
-	sheet1.Cells["C25"].Style.Font.Color.SetColor(Color.Blue);
-	sheet1.Cells["C25"].Style.Font.UnderLine = true;
+	// A hyperlink (mailto: works also)
+	sheet.Cells["C25"].Hyperlink = new Uri("http://pongit.be", UriKind.Absolute);
+	sheet.Cells["C25"].Value = "Visit us";
+	sheet.Cells["C25"].Style.Font.Color.SetColor(Color.Blue);
+	sheet.Cells["C25"].Style.Font.UnderLine = true;
 
-	sheet1.Cells.AutoFitColumns();
+	sheet.Cells["Z1"].Clear();
+
+	sheet.Cells.AutoFitColumns();
 	package.SaveAs(new FileInfo(@""));
 }
 ```
@@ -141,57 +187,97 @@ Formatting
 ```c#
 using (var package = new ExcelPackage())
 {
-	ExcelWorksheet sheet1 = package.Workbook.Worksheets.Add("Styling");
-	sheet1.TabColor = Color.Red;
+	ExcelWorksheet sheet = package.Workbook.Worksheets.Add("Styling");
+	sheet.TabColor = Color.Red;
 
 	// Cells with style
-	ExcelFont font = sheet1.Cells["A1"].Style.Font;
-	sheet1.Cells["A1"].Value = "Bold and proud";
-	sheet1.Cells["A1"].Style.Font.Name = "Arial";
+	ExcelFont font = sheet.Cells["A1"].Style.Font;
+	sheet.Cells["A1"].Value = "Bold and proud";
+	sheet.Cells["A1"].Style.Font.Name = "Arial";
 	font.Bold = true;
 	font.Color.SetColor(Color.Green);
 	// ExcelFont also has: Size, Italic, Underline, Strike, ...
 
-	sheet1.Cells["A3"].Style.Font.SetFromFont(new Font(new FontFamily("Arial"), 15, FontStyle.Strikeout));
-	sheet1.Cells["A3"].Value = "SetFromFont(Font)";
+	sheet.Cells["A3"].Style.Font.SetFromFont(new Font(new FontFamily("Arial"), 15, FontStyle.Strikeout));
+	sheet.Cells["A3"].Value = "SetFromFont(Font)";
 
 	// Borders need to be made
-	sheet1.Cells["A1:A2"].Style.Border.BorderAround(ExcelBorderStyle.Dotted);
-	sheet1.Cells[5, 5, 9, 8].Style.Border.BorderAround(ExcelBorderStyle.Dotted);
+	sheet.Cells["A1:A2"].Style.Border.BorderAround(ExcelBorderStyle.Dotted);
+	sheet.Cells[5, 5, 9, 8].Style.Border.BorderAround(ExcelBorderStyle.Dotted);
 
 	// Merge cells
-	sheet1.Cells[5, 5, 9, 8].Merge = true;
+	sheet.Cells[5, 5, 9, 8].Merge = true;
 
 	// More style
-	sheet1.Cells["D14"].Style.ShrinkToFit = true;
-	sheet1.Cells["D14"].Style.Font.Size = 24;
-	sheet1.Cells["D14"].Value = "Shrinking for fit";
+	sheet.Cells["D14"].Style.ShrinkToFit = true;
+	sheet.Cells["D14"].Style.Font.Size = 24;
+	sheet.Cells["D14"].Value = "Shrinking for fit";
 
-	sheet1.Cells["D15"].Style.WrapText = true;
-	sheet1.Cells["D15"].Value = "A wrap, yummy!";
-	sheet1.Cells["D16"].Value = "No wrap, ouch!";
+	sheet.Cells["D15"].Style.WrapText = true;
+	sheet.Cells["D15"].Value = "A wrap, yummy!";
+	sheet.Cells["D16"].Value = "No wrap, ouch!";
 
 	// Setting a background color requires setting the PatternType first
-	sheet1.Cells["F6:G8"].Style.Fill.PatternType = ExcelFillStyle.Solid;
-	sheet1.Cells["F6:G8"].Style.Fill.BackgroundColor.SetColor(Color.Red);
+	sheet.Cells["F6:G8"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+	sheet.Cells["F6:G8"].Style.Fill.BackgroundColor.SetColor(Color.Red);
 
 	// Horizontal Alignment needs a little workaround
 	// http://stackoverflow.com/questions/34660560/epplus-isnt-honoring-excelhorizontalalignment-center-or-right
 	var centerStyle = package.Workbook.Styles.CreateNamedStyle("Center");
 	centerStyle.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-	sheet1.Cells["B5"].StyleName = "Center";
-	sheet1.Cells["B5"].Value = "I'm centered";
+	sheet.Cells["B5"].StyleName = "Center";
+	sheet.Cells["B5"].Value = "I'm centered";
 
-	// MIGHT NOT WORK:
-	sheet1.Cells["B6"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-	sheet1.Cells["B6"].Value = "I'm not centered? :(";
+	// MIGHT NOT WORK (in LibreOffice):
+	sheet.Cells["B6"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+	sheet.Cells["B6"].Value = "I'm not centered? :(";
 
 	package.SaveAs(new FileInfo(@""));
 }
 ```
 
-Converting indexes and ranges
------------------------------
+Miscellaneous
+-------------
+
+```c#
+// Set workbook properties like title, author, company, ...
+OfficeProperties props = package.Workbook.Properties;
+
+// Modify column props: AutoFit(), Hidden, ...
+var colE = package.Workbook.Worksheets.First().Column(5);
+```
+
+**Printing**:  
+```c#
+using (var package = new ExcelPackage())
+{
+	var sheet = package.Workbook.Worksheets.Add("Printing");
+	sheet.Cells["A1"].Value = "Check the print preview (Ctrl+P)";
+
+	var header = sheet.HeaderFooter.OddHeader;
+	// &24: Font size
+	// &U: Underlined
+	// &"": Font name
+	header.CenteredText = "&24&U&\"Arial,Regular Bold\" YourTitle";
+	header.RightAlignedText = ExcelHeaderFooter.CurrentDate;
+	header.LeftAlignedText = ExcelHeaderFooter.SheetName;
+
+	ExcelHeaderFooterText footer = sheet.HeaderFooter.OddFooter;
+	footer.RightAlignedText = $"Page {ExcelHeaderFooter.PageNumber} of {ExcelHeaderFooter.NumberOfPages}";
+	footer.CenteredText = ExcelHeaderFooter.SheetName;
+	footer.LeftAlignedText = ExcelHeaderFooter.FilePath + ExcelHeaderFooter.FileName;
+
+	sheet.PrinterSettings.RepeatRows = sheet.Cells["1:2"];
+	sheet.PrinterSettings.RepeatColumns = sheet.Cells["A:G"];
+
+	sheet.View.PageLayoutView = true;
+
+	package.SaveAs(new FileInfo(@""));
+}
+```
+
+
+**Converting indexes and ranges**:  
 ```c#
 [Test]
 public void ConvertingIndexesAndAddresses()
@@ -205,6 +291,7 @@ public void ConvertingIndexesAndAddresses()
 	Assert.That(ExcelCellBase.TranslateFromR1C1("R23C28", 0, 0), Is.EqualTo("$AB$23"));
 }
 ```
+
 
 [epplus-nuget]: https://www.nuget.org/packages/EPPlus/
 [github-project]: https://github.com/be-pongit/EPPlusTutorial

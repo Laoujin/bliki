@@ -6,7 +6,13 @@ categories: productivity
 tags: [autohotkey]
 ---
 
+There is no one way to do things in Autohotkey.
+It's syntax is pretty loose which might be confusing when starting out
+and all example codes seems to be written differently.
 
+Variable assignment
+x = 5
+x := 5
 
 
 <!--more-->
@@ -14,6 +20,7 @@ tags: [autohotkey]
 **Versions**:  
 Oh boy :)
 AutoHotkey_L
+-> Much worse than the penicle Python finds itself in.
 
 
 **Running**:  
