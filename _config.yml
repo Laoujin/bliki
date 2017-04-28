@@ -10,6 +10,7 @@
 # Accessed via {{ site.title }}
 title: Something Fishy
 author: Van Schandevijl Wouter
+logo: /favicon.png
 email: woutervs@hotmail.com
 description: > # this means to ignore newlines until "baseurl:"
   Programming and stuff
@@ -20,7 +21,19 @@ github_username: Laoujin
 google_analytics: UA-30075487-6
 excerpt_separator: <!--more-->
 
-logo: /favicon.png
+jekyll-archives:
+  enabled: all
+  layouts:
+    category: archives/category
+    year: archives/year
+    month: archives/month
+    tag: archives/category
+  permalinks:
+    year: '/:year/'
+    month: '/:year/:month/'
+    tag: '/tag/:name/'
+    category: '/category/:name/'
+
 
 # Build settings
 markdown: kramdown
@@ -29,6 +42,7 @@ gems:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-archives
 exclude:
   - Gemfile
   - Gemfile.lock
