@@ -18,9 +18,11 @@ bundle install
 ```
 
 Plugins that might be added later:  
-- [jekyll-gist][https://github.com/jekyll/jekyll-gist]
+- [jekyll-gist][https://github.com/jekyll/jekyll-gist] (Not on GitHubPages)
 - [jemoji][https://github.com/jekyll/jemoji]
-- 
+- [jekyll-compose][https://github.com/jekyll/jekyll-compose]
+- https://github.com/markets/jekyll-timeago
+- https://github.com/bdesham/reading_time
 
 
 https://github.com/jekyll/github-metadata#authentication
