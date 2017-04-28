@@ -12,20 +12,64 @@ C# and the [EPPlus nuget package][epplus-nuget].
 
 > EPPlus Excel addresses are not zero based: The first column is column 1!
 
-Some things that are hiding in plain sight:
-- ExcelRange.LoadFromCollection()
-- sheet.Cells.AutoFitColumns()
-<!--TODO: Expand basic usage example so that the most common stuff is covered-->
-
-Before writing any loops, you might want to check out the `LoadFromXXX` methods.
+Also, before writing any loops, you might want to check out the `LoadFromXXX` methods.
 
 <!--more-->
 
+The blog posts will only cover the most important functionality.
+[More extensive code examples][github-project] can be found in the GitHub project.
+
+Quickstart
+==========
+**Install**:  
+```
+Install-Package EPPlus
+```
+
+**Use**:  
+```c#
+using OfficeOpenXml;
+
+using (var package = new ExcelPackage())
+{
+	ExcelWorksheet sheet = package.Workbook.Worksheets.Add("MySheet");
+
+	// Setting & getting values
+	ExcelRange firstCell = sheet.Cells[1, 1];
+	firstCell.Value = "will it work?";
+	sheet.Cells["A2"].Formula = "CONCATENATE(A1,\" ... Ofcourse it will!\")";
+	Assert.That(firstCell.Text, Is.EqualTo("will it work?"));
+
+	// Numbers
+	var moneyCell = sheet.Cells["A3"];
+	moneyCell.Style.Numberformat.Format = "$#,##0.00";
+	moneyCell.Value = 15.25M;
+
+	// Easily write any Enumerable to a sheet
+	// In this case: All Excel functions implemented by EPPlus
+	var funcs = package.Workbook.FormulaParserManager.GetImplementedFunctions()
+		.Select(x => new {FunctionName = x.Key, TypeName = x.Value.GetType().FullName});
+	sheet.Cells["A4"].LoadFromCollection(funcs, true);
+
+	// Styling cells
+	var someCells = sheet.Cells["A1,A4:B4"];
+	someCells.Style.Font.Bold = true;
+	someCells.Style.Font.Color.SetColor(Color.Ivory);
+	someCells.Style.Fill.PatternType = ExcelFillStyle.Solid;
+	someCells.Style.Fill.BackgroundColor.SetColor(Color.Navy);
+
+	sheet.Cells.AutoFitColumns();
+	package.SaveAs(new FileInfo(@"basicUsage.xslx"));
+}
+```
+
+**Boring text ahead**:  
 Did you know: It is a successor to ExcelPackage, hence the name.  
 (this should come in a cool <aside>)
 
 While it's often not easy to find EPPlus examples online, the source code does
 contain a whole bunch of extensive examples. Be sure to check them out.
+<!-- TODO: After EPPlus moved from Codeplex, add a hyperlink to the examples project -->
 
 
 Everything covered works with LibreOffice 5.0. EPPlus covers things that LibreOffice
@@ -33,38 +77,16 @@ doesn't seem to know how to handle. For example:
 
 - Graphs
 - LoadFromCollection `TableStyles`
-- Style.VerticalAlignment
 - sheet.View.PageLayoutView = true
 - sheet.Hidden = eWorkSheetHidden.VeryHidden
-
-Setup
-=====
-```
-Install-Package EPPlus
-```
+- ...
 
 Examples
 ========
-The blog posts will only cover the most important functionality.
-[More extensive code examples][github-project] can be found in the GitHub project.
 
-Basic Usage
------------
-```c#
-using OfficeOpenXml;
+Opening &amp; Saving
+--------------------
 
-using (var package = new ExcelPackage())
-{
-	ExcelWorksheet sheet = package.Workbook.Worksheets.Add("MySheet");
-	ExcelRange firstCell = sheet.Cells[1, 1]; // or use "A1"
-	firstCell.Value = "will it work...";
-	sheet.Cells.AutoFitColumns();
-	package.SaveAs(new FileInfo(@"basicUsage.xslx"));
-}
-```
-
-Opening & Saving
-----------------
 Open an existing Excel, or if the file does not exist,
 create a new one when `package.Save()` is called.
 ```c#
@@ -76,7 +98,7 @@ using (var basicUsageExcel = File.Open(@"basicUsage.xslx"), FileMode.Open))
 	sheet.Cells["D2"].Value = "by the package.Load() below!!!";
 
 	// Loads the worksheets from BasicUsage
-	// (MySheet with A1 = will it work...)
+	// (MySheet with A1 = will it work?)
 	package.Load(basicUsageExcel);
 
 	package.Save("optionalPassword");
@@ -205,10 +227,8 @@ using (var package = new ExcelPackage())
 	sheet.Cells["A1:A2"].Style.Border.BorderAround(ExcelBorderStyle.Dotted);
 	sheet.Cells[5, 5, 9, 8].Style.Border.BorderAround(ExcelBorderStyle.Dotted);
 
-	// Merge cells
-	sheet.Cells[5, 5, 9, 8].Merge = true;
-
 	// More style
+	sheet.Cells[5, 5, 9, 8].Merge = true;
 	sheet.Cells["D14"].Style.ShrinkToFit = true;
 	sheet.Cells["D14"].Style.Font.Size = 24;
 	sheet.Cells["D14"].Value = "Shrinking for fit";
@@ -271,6 +291,26 @@ using (var package = new ExcelPackage())
 	sheet.PrinterSettings.RepeatColumns = sheet.Cells["A:G"];
 
 	sheet.View.PageLayoutView = true;
+
+	package.SaveAs(new FileInfo(@""));
+}
+```
+
+
+**Comments &amp; RichText**:  
+```c#
+using (var package = new ExcelPackage())
+{
+	var sheet = package.Workbook.Worksheets.Add("");
+
+	var comment = sheet.Cells["A1"].AddComment("Bold title:\r\n", "evil corp");
+	comment.Font.Bold = true;
+	var rt = comment.RichText.Add("Unbolded subtext");
+	rt.Bold = false;
+	comment.AutoFit = true;
+
+	// A more extensive example can be found in Sample6.cs::AddComments of the official examples project
+	// TODO: With Codeplex shutting down, once they've moved to GitHub, add url to Sample6 here
 
 	package.SaveAs(new FileInfo(@""));
 }

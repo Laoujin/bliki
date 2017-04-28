@@ -95,7 +95,7 @@ using (var package = new ExcelPackage())
 	list1.Formula.Values.Add("Oranges");
 	list1.Formula.Values.Add("Lemons");
 
-	# Or load from another sheet
+	// Or load from another sheet
 	//package.Workbook.Worksheets.Add("OtherSheet");
 	//list1.Formula.ExcelFormula = "OtherSheet!A1:A4";
 
@@ -109,7 +109,6 @@ using (var package = new ExcelPackage())
 	list1.AllowBlank = true;
 
 	sheet.Cells["C7"].Value = "Pick";
-	sheet.Cells["C7"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Right;
 	package.SaveAs(new FileInfo(@""));
 }
 ```
@@ -144,6 +143,6 @@ using (var package = new ExcelPackage())
 	// Existing validations
 	var validations = package.Workbook.Worksheets.SelectMany(sheet1 => sheet1.DataValidations);
 
-	package.SaveAs(new FileInfo(BinDir.GetPath()));
+	package.SaveAs(new FileInfo(@""));
 }
 ```

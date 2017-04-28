@@ -103,5 +103,5 @@ howtogeek.com
 
 
 
-Difference between Autohotkey & Autohotkey_L
+Difference between Autohotkey &amp; Autohotkey_L
 

@@ -51,7 +51,7 @@ Win+Enter: Open Windows Narrator
 services.msc: Local services
 
 Windows 8 Specific
-Win + C: See charms (and current date & time)
+Win + C: See charms (and current date &amp; time)
 Win + Q: Search everywhere
 Win + F: Find files
 Win + W: Search settings
