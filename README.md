@@ -16,11 +16,6 @@ bundle show minima
 # Add to _config.yml and Gemfile
 bundle install
 ```
-
-TODO: posts: add tags
-TODO: About: 2 content panes
-
-
 https://github.com/jekyll/github-metadata#authentication
 JEKYLL_GITHUB_TOKEN=123abc [bundle exec] jekyll serve
 https://help.github.com/articles/adding-jekyll-plugins-to-a-github-pages-site/

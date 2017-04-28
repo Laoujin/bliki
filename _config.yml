@@ -16,9 +16,11 @@ description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 #repository: be-pongit/be-pongit.github.io
-github_username:  Laoujin
+github_username: Laoujin
 google_analytics: UA-30075487-6
 excerpt_separator: <!--more-->
+
+logo: /favicon.png
 
 # Build settings
 markdown: kramdown
@@ -26,6 +28,7 @@ theme: jekyll-theme-minimal
 gems:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
 exclude:
   - Gemfile
   - Gemfile.lock
