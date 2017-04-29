@@ -22,7 +22,7 @@ google_analytics: UA-30075487-6
 excerpt_separator: <!--more-->
 
 jekyll-archives:
-  enabled: all
+  enabled: [category, tag, year, month]
   layouts:
     category: archives/category
     year: archives/year
