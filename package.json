@@ -4,7 +4,8 @@
   "description": "pongit.be",
   "main": "index.js",
   "scripts": {
-    "start": "bundle exec jekyll serve --drafts"
+    "start": "bundle exec jekyll serve --drafts",
+    "build": "bundle exec jekyll build"
   },
   "repository": {
     "type": "git",
