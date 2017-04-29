@@ -23,6 +23,10 @@ Plugins that might be added later:
 - [jekyll-compose][https://github.com/jekyll/jekyll-compose]
 - https://github.com/markets/jekyll-timeago
 - https://github.com/bdesham/reading_time
+- https://github.com/pattex/jekyll-tagging
+- https://github.com/toshimaru/jekyll-toc
+- https://github.com/bdesham/inline_highlight
+- https://github.com/jekyll/jekyll-admin
 
 
 https://github.com/jekyll/github-metadata#authentication
