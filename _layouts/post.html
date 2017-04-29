@@ -4,10 +4,11 @@ layout: default
 <article class="post hentry" itemscope itemtype="http://schema.org/BlogPosting">
 
 	<header>
+
 		<h1 class="entry-title" itemprop="name headline">
 			{{page.title | escape}}
 			<div class="pull-right">
-				<a href="https://github.com/be-pongit/be-pongit.github.io/tree/master/{{page.path}}" class="entry-edit">
+				<a href="{{site.github_data_url}}/{{page.path}}" class="entry-edit">
 					<i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit this post"></i>
 				</a>
 			</div>
@@ -15,10 +16,13 @@ layout: default
 
 		<p class="entry-meta">
 			<time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{page.date | date: "%b %-d, %Y"}}</time>
-			{% if page.author %}
+			•
+			<a href="/category/{{page.categories}}">{{page.categories}}</a>
+
+			{% if site.author %}
 				•
 				<span itemprop="author" itemscope itemtype="http://schema.org/Person">
-					<span itemprop="name">{{page.author}}</span>
+					by <span itemprop="name">{{site.author}}</span>
 				</span>
 			{% endif %}
 		</p>
@@ -27,6 +31,13 @@ layout: default
 	<div class="post-content" itemprop="articleBody">
 		{{content}}
 	</div>
+
+	<span class="tags-links">
+		{% for tag in page.tags %}
+			<a href="/tag/{{tag}}">{{tag}}</a>
+		{% endfor %}
+	</span>
+
 
 	{% if site.disqus.shortname %}
 		{% include components/disqus_comments.html %}

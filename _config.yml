@@ -17,22 +17,24 @@ description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 #repository: be-pongit/be-pongit.github.io
+github_data_url: https://github.com/Laoujin/bliki/blob/master
 github_username: Laoujin
 google_analytics: UA-30075487-6
 excerpt_separator: <!--more-->
 
 jekyll-archives:
-  enabled: [category, tag, year, month]
+  enabled: all
   layouts:
     category: archives/category
+    tag: archives/category
     year: archives/year
     month: archives/month
-    tag: archives/category
+    day: archives/month
   permalinks:
+    category: '/category/:name/'
+    tag: '/tag/:name/'
     year: '/:year/'
     month: '/:year/:month/'
-    tag: '/tag/:name/'
-    category: '/category/:name/'
 
 
 # Build settings
