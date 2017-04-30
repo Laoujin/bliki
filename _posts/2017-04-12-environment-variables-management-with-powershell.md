@@ -11,7 +11,7 @@ Working with environment variables in Windows is as easy as:
 Win + Pause > "Advanced system settings" > "Environment Variables..."
 ```
 After which you get a tiny, unresizable, form where you can view and manage them.
-Something better might eventually ship with Windows 2023. Until then, PowerShell :)
+Something better eventually arrived with Windows 10 but still, PowerShell :)
 
 <!--more-->
 
