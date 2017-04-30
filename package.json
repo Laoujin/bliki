@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/be-pongit/be-pongit.github.io.git"
+    "url": "git+https://github.com/laoujin/bliki.git"
   },
   "author": "Wouter Van Schandevijl <woutervs@hotmail.com>",
   "license": "CC-BY-4.0",
   "bugs": {
-    "url": "https://github.com/be-pongit/be-pongit.github.io/issues"
+    "url": "https://github.com/laoujin/bliki/issues"
   },
   "homepage": "http://pongit.be"
 }
