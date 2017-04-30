@@ -7,15 +7,9 @@ layout: default
 
 		<h1 class="entry-title" itemprop="name headline">
 			{{page.title | escape}}
-			<div class="pull-right">
-				<a href="{{site.github_data_url}}/{{page.path}}" class="entry-edit">
-					<i class="fa fa-pencil-square-o" aria-hidden="true" title="Edit this post"></i>
-				</a>
-			</div>
 		</h1>
 
 		{% include post-meta-data.html post=page author=true %}
-
 	</header>
 
 	<div class="post-content" itemprop="articleBody">

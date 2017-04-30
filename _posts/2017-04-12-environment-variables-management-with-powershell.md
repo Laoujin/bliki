@@ -6,6 +6,8 @@ categories: productivity
 tags: [powershell,windows]
 ---
 
+{% include toc title="Environment vars" icon="windows" %}
+
 Working with environment variables in Windows is as easy as:  
 ```
 Win + Pause > "Advanced system settings" > "Environment Variables..."

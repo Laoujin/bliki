@@ -6,6 +6,8 @@ categories: productivity
 tags: [autohotkey,powershell,windows]
 ---
 
+{% include toc title="Windows Explorer" icon="windows" %}
+
 A listing of handy but less known shortcuts in Windows Explorer
 and some Autohotkey examples on how to add extra functionality.
 
@@ -15,7 +17,6 @@ Open Windows Exporer, the most direct way:
 
 <br>
 <!--more-->
-
 
 From a PowerShell prompt: `ii .` or `$aPath | ii`  
 From a cmd prompt: `start .`
@@ -58,9 +59,10 @@ The locations are stored in: HKCU:\Software\Microsoft\Windows\CurrentVersion\Exp
 {% include kbd k="Alt+Left" l="Go to previous folder (or Backspace)" %}
 {% include kbd k="Alt+Right" l="Go to next folder" %}
 
-### Other fun stuff
 
-**Create a new dotfile**:  
+
+## Create a new dotfile
+
 To work around "You must type a file name", append an additional dot at the end of the filename.
 ```
 .gitignore.
@@ -68,14 +70,18 @@ To work around "You must type a file name", append an additional dot at the end 
 Or in PowerShell: `ac .gitignore "node_modules"`
 
 
-**Back to the CLI**:  
+
+## Back to the CLI
+
 Alt+D followed by cmd or powershell will open a prompt at the current path.
 {: style="display: inline"}
 {% include kbd k="Shift+F10,w" l="Open command prompt in selected folder" %}
 
 <br>
 
-**Jump to an env var**:  
+## Jump to an env var
+
+
 Alt+D followed by `%APPDATA%`, `%USERPROFILE%` or any environment variable.  
 Or one of the shell commands like `shell:startup`, `shell:sendto` or `shell:desktop`
 
@@ -88,9 +94,8 @@ Get-ChildItem $path | Select-Object `
 	@{l="Path";e={[Environment]::GetFolderPath($_.GetValue("Name")).Replace(" ", "")}}
 ```
 
+## Less used shortcuts
 
-
-**Less useful shortcuts**  
 {% include kbd k="Control+F1" l="Toggle Ribbon" %}
 {% include kbd k="Control+Mousewheel" l="Scroll through the different views" %}
 {% include kbd k="Alt+P" l="Toggle preview pane" %}
@@ -119,8 +124,9 @@ https://blogs.msdn.microsoft.com/andrew_richards/2017/03/01/enhancing-the-open-c
 
 
 
-Extensions
-==========
+Autohotkey Extensions
+=====================
+
 Add missing stuff yourself with Autohotkey.  
 Find [the source for the Autohotkey scripts here][github-ahk]
 
@@ -143,28 +149,15 @@ Explorer_GetSelected()
 ```
 
 
-The scripts
------------
 
-While `Control + Shift + 6` is probably very useful, pesky Windows
-might truncate longer filenames.
+## Zip directory
 
-```ahk
-; Control + Shift + 6: Details View
-; ~ = Do not block native function
-~^+6::
-; Resize columns so that filenames are completely visible
-Send {Control Down}{NumpadAdd}{Control Up}
-Return
-```
-
-
-**Zip directory**:  
 [Ahk source][github-ahk-zip] for creating a zip file with the contents of
 the current directory or the currently selected files.
 
 
-**Create new file**:  
+## Create new file
+
 One creates a new directory with Control + Shift + N but there is not really one for
 creating a new file.
 
@@ -199,6 +192,19 @@ DeselectSelectedFiles()
 }
 ```
 
+## Other
+
+While `Control + Shift + 6` is probably very useful, pesky Windows
+might truncate longer filenames.
+
+```ahk
+; Control + Shift + 6: Details View
+; ~ = Do not block native function
+~^+6::
+; Resize columns so that filenames are completely visible
+Send {Control Down}{NumpadAdd}{Control Up}
+Return
+```
 
 
 Closing an Explorer window can be done with Alt+F4 or with Control+W.
@@ -219,8 +225,7 @@ Return
 * * *
 
 
-Alternatives
-============
+**Alternatives**:  
 
 According to [AlternativeTo Windows Explorer][alternatives], many people like Total Commander.
 

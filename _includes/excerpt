@@ -1,7 +1,7 @@
 <small>
-	{% if include.post.content contains '<!--more-->' %}
-		{{include.post.content | split:'<!--more-->' | first}}
-	{% else %}
-		{{include.post.excerpt}}
-	{% endif %}
+{% if include.post.content contains '<!--more-->' %}
+{{include.post.content | split:'<!--endtoc-->' | last | split:'<!--more-->' | first }}
+{% else %}
+{{include.post.excerpt}}
+{% endif %}
 </small>

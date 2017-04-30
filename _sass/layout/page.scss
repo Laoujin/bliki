@@ -51,7 +51,7 @@
 	line-height: 36px;
 	margin: 0;
 	padding: 0;
-	font-weight: 650;
+	font-weight: 600;
 }
 
 .entry-meta {
@@ -63,6 +63,7 @@
 a.entry-edit {
 	color: #ccc;
 	font-size: 14px;
+	margin-right: 4px;
 }
 
 
@@ -93,5 +94,94 @@ a.entry-edit {
 		@include media-query($on-laptop) {
 			font-size: 18px;
 		}
+	}
+}
+
+
+
+
+
+
+
+.sidebar__right {
+	margin-bottom: 1em;
+}
+
+@media (min-width: 800px) {
+	.sidebar__right {
+		margin-top: -75px;
+		position: relative;
+		float: right;
+		width: 200px;
+		margin-left: 2.54237%;
+		z-index: 10;
+	}
+}
+
+@media (min-width: 80em) {
+	.sidebar__right {
+		 width: 300px;
+	}
+}
+
+.toc {
+	color: #7a8288;
+	background-color: #fff;
+	border: 1px solid #f2f3f3;
+	border-radius: 4px;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.125);
+
+	ul {
+		margin-left: 0px;
+	}
+}
+
+.toc .nav__title {
+	margin-bottom: 0px;
+	padding: 10px;
+	color: #fff;
+	font-size: 20px;
+	background: #7a8288;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	white-space: nowrap;
+}
+
+.toc__menu {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	list-style: none;
+	font-size: 18px;
+}
+
+.toc__menu a {
+	display: block;
+	padding: 0.5rem 1rem;
+	color: #7a8288;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 1.5;
+	border-bottom: 1px solid #f2f3f3;
+}
+
+.toc__menu a:hover {
+	color: #000;
+	background: #f2f3f3;
+	text-decoration: underline;
+}
+
+.toc__menu li ul>li a {
+	padding-left: 2rem;
+	font-weight: normal;
+}
+
+.toc__menu li>ul li {
+	display: none;
+}
+
+@media (min-width: 48em) {
+	.toc__menu li>ul li {
+		display:block;
 	}
 }

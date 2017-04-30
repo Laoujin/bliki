@@ -6,6 +6,8 @@ categories: dotnet
 tags: [net,cheat-sheet]
 ---
 
+{% include toc title="Battle" icon="dot-circle-o" %}
+
 A quick cheat sheet outlining the syntax differences between VB.NET and C#.  
 Because some things are just so similar but still confusingly different in VB.NET vs C#...
 

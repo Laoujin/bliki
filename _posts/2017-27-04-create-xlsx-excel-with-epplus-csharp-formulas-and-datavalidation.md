@@ -4,7 +4,10 @@ title:  "Create Excels with C# and EPPlus: Formulas & DataValidation"
 date:   2017-04-27 12:00:00 +0200
 categories: dotnet
 tags: [net,excel,tutorial]
+permalink: /nuget/epplus/tutorial-part-2
 ---
+
+{% include toc title="Excel series: Part 2" icon="file-excel-o" %}
 
 In case your users want to continue working with the Excels after generation.
 
@@ -13,8 +16,7 @@ an excel, leverage the power of Excel formulas.
 
 <!--more-->
 
-Formulas
---------
+## Formulas
 
 The project code creates an Excel like this:
 
@@ -64,7 +66,7 @@ using (var package = new ExcelPackage())
 }
 ```
 
-**SUBTOTAL**:  
+### SUBTOTAL
 SUBTOTAL(9,...), as apposed to using SUM directly, will not include other subtotals in their calculation.
 
 ```vba
@@ -89,9 +91,10 @@ Filtered-out rows are always excluded.
 {: .table-code}
 
 
-DataValidation
---------------
-**Dropdownlists**:  
+## DataValidation
+
+### Dropdownlists
+
 ```c#
 using (var package = new ExcelPackage())
 {
@@ -120,7 +123,8 @@ using (var package = new ExcelPackage())
 }
 ```
 
-**Integer & DateTime validation**:  
+### Integer & DateTime validation
+
 ```c#
 using (var package = new ExcelPackage())
 {

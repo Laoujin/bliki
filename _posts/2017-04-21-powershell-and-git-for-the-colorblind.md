@@ -6,6 +6,8 @@ categories: productivity
 tags: [powershell,git]
 ---
 
+{% include toc title="Colorization" icon="eye" %}
+
 My PowerShell, Posh-Git and .gitconfig color configuration because of some red-green troubles
 with the default configurations.
 

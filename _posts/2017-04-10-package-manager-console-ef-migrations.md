@@ -6,6 +6,8 @@ categories: productivity
 tags: [net,ef6,powershell,nuget]
 ---
 
+{% include toc title="EF6 PMC" icon="dot-circle-o" %}
+
 This tutorial is about adding the following functionality to the Entity Framework Migrations CLI:  
 - Execute commands against the project containing the migrations by providing the most likely -Project parameter value
 - Allow updating the database using a numeric TargetMigration (-2 = migrate to the third last migration)
@@ -87,7 +89,7 @@ Easily go back to a specific migration using `ud -1` instead of
 Update-Database -TargetMigration:SecondLastMigrationName
 ```
 
-### Example
+### Usage
 ```powershell
 # List last 5 migrations:
 # (aliased as List-Migrations or lm)

@@ -44,15 +44,30 @@ jekyll-archives:
     year: '/:year/'
     month: '/:year/:month/'
 
-
 # Build settings
 markdown: kramdown
+#lsi: true # https://jekyllrb.com/docs/configuration/
 theme: jekyll-theme-minimal
 gems:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-archives
+
+# kramdown:
+#   parse_block_html: true
+#   input: GFM
+#   hard_wrap: false
+#   auto_ids: true
+#   footnote_nr: 1
+#   entity_output: as_char
+#   toc_levels: 1..6
+#   smart_quotes: lsquo,rsquo,ldquo,rdquo
+#   enable_coderay: false
+
+#kramdown:
+  # parse_block_html: true
+  # toc_levels: 1..6
 
 exclude:
   - Gemfile

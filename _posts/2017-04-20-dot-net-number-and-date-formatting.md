@@ -6,6 +6,8 @@ categories: dotnet
 tags: [net,date,globalization,cheat-sheet]
 ---
 
+{% include toc title="Formatting" icon="dot-circle-o" %}
+
 A cheat sheet with everything there is to know about 
 formatting the primitive types, `DateTime`s and `TimeSpan`s in .NET.
 
