@@ -22,6 +22,11 @@ github_username: Laoujin
 google_analytics: UA-30075487-6
 excerpt_separator: <!--more-->
 
+collections:
+  posts:
+    output: true
+    permalink: /:categories/:title/
+
 jekyll-archives:
   enabled: all
   layouts:
