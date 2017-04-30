@@ -18,11 +18,9 @@ bundle install
 ```
 
 Plugins that might be added later:  
-- [jekyll-gist][https://github.com/jekyll/jekyll-gist] (Not on GitHubPages)
-- [jemoji][https://github.com/jekyll/jemoji]
-- [jekyll-compose][https://github.com/jekyll/jekyll-compose]
-- https://github.com/markets/jekyll-timeago
-- https://github.com/bdesham/reading_time
+- [jekyll-gist][jekyll-gist]
+- [jemoji][jemoji]
+- [jekyll-compose][jekyll-compose]
 - https://github.com/pattex/jekyll-tagging
 - https://github.com/toshimaru/jekyll-toc
 - https://github.com/bdesham/inline_highlight
@@ -75,3 +73,6 @@ TODO
 ----
 https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
 
+[jekyll-gist]: https://github.com/jekyll/jekyll-gist
+[jemoji]: https://github.com/jekyll/jemoji
+[jekyll-compose]: https://github.com/jekyll/jekyll-compose
