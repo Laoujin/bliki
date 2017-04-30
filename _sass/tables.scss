@@ -33,3 +33,28 @@ table.table-code {
 		width: 50%;
 	}
 }
+
+
+table.table-excel {
+	width: 100%;
+	margin-bottom: 15px;
+	border-collapse: collapse;
+
+	th, tr td:first-child {
+		background-color: #EEE;
+		color: #222;
+		text-align: center;
+		font-weight: normal;
+		white-space: nowrap;
+	}
+
+	th, td {
+		border: 1px solid #CCC;
+		padding: 5px;
+	}
+
+	tbody tr:first-child {
+		color: white;
+		background-color: #089DE3;
+	}
+}

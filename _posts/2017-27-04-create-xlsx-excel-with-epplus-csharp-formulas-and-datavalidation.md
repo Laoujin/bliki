@@ -15,43 +15,50 @@ an excel, leverage the power of Excel formulas.
 
 Formulas
 --------
+
+The project code creates an Excel like this:
+
+|   | A     | B        | C      | D          | E        | F         | G         | H       |
+|---|-------|----------|--------|------------|----------|-----------|-----------|---------|
+| 1 | Name  | Quantity | Price  | Base total | Discount | Total     | Special   | Payup   |
+| 2 | Nails | 37       | €3.99  | =B2*C2     |          | =D2       |           | =F2 * 0.8
+| 3 | Hammer| 5        | €12.10 | =B3*C3     | 10%      | =D3 * 0.9 |           | =F3 * 0.8
+| 4 | Saw   | 12       | €15.37 | =B4*C4     |          | =D4       |           | =F4 * 0.8
+| 5 | #COUNT|          |        | #SUBTOTAL  |          | #SUBTOTAL | 20%       | #TOTAL
+{: .table-excel}
+
+The formulas below show how to set the #FORMULAS.
+
 ```c#
 using (var package = new ExcelPackage())
 {
 	var sheet = package.Workbook.Worksheets.Add("Formula");
 
-	// The project contains code that actually adds some data to the sheet. Assumed data:
-	// Id, Product, Quantity, Price, Base total, Discount, Total, Special discount, Payup
-	// The data values:
-	//yield return new Sell("Nails", 3.99M, 37);
-	//yield return new Sell(name: "Hammer", price: 12.10M, quantity: 5, discount: 0.1M);
-	//yield return new Sell("Saw", 15.37M, 12);
-
 	// Starting = is optional
-	sheet.Cells["A5"].Formula = "=COUNT(A2:A4)";
+	sheet.Cells["A5"].Formula = "=COUNTA(A2:A4)";
 
 	// Total column
-	sheet.Cells["E2:E4"].Formula = "C2*D2"; // quantity * price
-	Assert.That(sheet.Cells["E2"].FormulaR1C1, Is.EqualTo("RC[-2]*RC[-1]"));
-	Assert.That(sheet.Cells["E4"].FormulaR1C1, Is.EqualTo("RC[-2]*RC[-1]"));
+	sheet.Cells["D2:D4"].Formula = "B2*C2"; // quantity * price
+	Assert.That(sheet.Cells["D2"].FormulaR1C1, Is.EqualTo("RC[-2]*RC[-1]"));
+	Assert.That(sheet.Cells["D4"].FormulaR1C1, Is.EqualTo("RC[-2]*RC[-1]"));
 
 	// Total - discount column
 	// Calculate formulas before they are available in the sheet
 	// (Opening an Excel with Office will do this automatically)
-	sheet.Cells["G2:G4"].Formula = "IF(ISBLANK(F2),E2,E2*(1-F2))";
-	Assert.That(sheet.Cells["G2"].Text, Is.Empty);
+	sheet.Cells["F2:F4"].Formula = "IF(ISBLANK(E2),D2,D2*(1-E2))";
+	Assert.That(sheet.Cells["F2"].Text, Is.Empty);
 	sheet.Calculate();
-	Assert.That(sheet.Cells["G2"].Text, Is.Not.Empty);
+	Assert.That(sheet.Cells["F2"].Text, Is.Not.Empty);
 
 	// Total row
 	// R1C1 reference style
-	sheet.Cells["E5"].FormulaR1C1 = "SUBTOTAL(9,R[-3]C:R[-1]C)"; // total
-	Assert.That(sheet.Cells["E5"].Formula, Is.EqualTo("SUBTOTAL(9,E2:E4)"));
-	sheet.Cells["G5"].FormulaR1C1 = "SUBTOTAL(9,R[-3]C:R[-1]C)"; // total - discount
-	Assert.That(sheet.Cells["G5"].Formula, Is.EqualTo("SUBTOTAL(9,G2:G4)"));
+	sheet.Cells["D5"].FormulaR1C1 = "SUBTOTAL(9,R[-3]C:R[-1]C)"; // total
+	Assert.That(sheet.Cells["D5"].Formula, Is.EqualTo("SUBTOTAL(9,D2:D4)"));
+	sheet.Cells["F5"].FormulaR1C1 = "SUBTOTAL(9,R[-3]C:R[-1]C)"; // total - discount
+	Assert.That(sheet.Cells["F5"].Formula, Is.EqualTo("SUBTOTAL(9,F2:F4)"));
 
 	sheet.Calculate();
-	sheet.Cells["I2:I5"].Formula = "G2*(1-$H$5)"; // Pin H5
+	sheet.Cells["H2:H5"].Formula = "F2*(1-$G$5)"; // Pin G5
 
 	package.SaveAs(new FileInfo(@""));
 }
