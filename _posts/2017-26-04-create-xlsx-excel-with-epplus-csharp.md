@@ -65,9 +65,10 @@ using (var package = new ExcelPackage())
 }
 ```
 
+**Did you know:** It is a successor to ExcelPackage, hence the name.  
+{: .notice--info}
+
 **Boring text ahead**:  
-Did you know: It is a successor to ExcelPackage, hence the name.  
-(this should come in a cool <aside>)
 
 While it's often not easy to find EPPlus examples online, the source code does
 contain a whole bunch of extensive examples. Be sure to check them out.
@@ -155,7 +156,7 @@ using (var package = new ExcelPackage())
 }
 ```
 
-Writing Values
+Writing values
 --------------
 ```c#
 using (var package = new ExcelPackage())
@@ -206,8 +207,8 @@ using (var package = new ExcelPackage())
 }
 ```
 
-Formatting
-----------
+Styling cells
+-------------
 ```c#
 using (var package = new ExcelPackage())
 {
