@@ -3,7 +3,7 @@ layout: post
 title:  "Create Excels with C# and EPPlus: Formulas & DataValidation"
 date:   2017-04-27 12:00:00 +0200
 categories: dotnet
-tags: [net,excel]
+tags: [net,excel,tutorial]
 ---
 
 In case your users want to continue working with the Excels after generation.

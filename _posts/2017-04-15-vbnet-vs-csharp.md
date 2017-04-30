@@ -3,7 +3,7 @@ layout: post
 title:  "VB.NET vs C# Syntax differences"
 date:   2017-04-15 15:00:00 +0200
 categories: dotnet
-tags: [net]
+tags: [net,cheat-sheet]
 ---
 
 A quick cheat sheet outlining the syntax differences between VB.NET and C#.  

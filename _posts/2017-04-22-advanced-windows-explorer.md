@@ -13,9 +13,10 @@ Open Windows Exporer, the most direct way:
 {: style="display: inline"}
 {% include kbd k="Win+E" l="Open Windows Explorer" %}
 
+<br>
 <!--more-->
 
-<br>
+
 From a PowerShell prompt: `ii .` or `$aPath | ii`  
 From a cmd prompt: `start .`
 

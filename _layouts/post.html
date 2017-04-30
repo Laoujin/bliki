@@ -14,29 +14,15 @@ layout: default
 			</div>
 		</h1>
 
-		<p class="entry-meta">
-			<time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{page.date | date: "%b %-d, %Y"}}</time>
-			•
-			<a href="/category/{{page.categories}}">{{page.categories}}</a>
+		{% include post-meta-data.html post=page author=true %}
 
-			{% if site.author %}
-				•
-				<span itemprop="author" itemscope itemtype="http://schema.org/Person">
-					by <span itemprop="name">{{site.author}}</span>
-				</span>
-			{% endif %}
-		</p>
 	</header>
 
 	<div class="post-content" itemprop="articleBody">
 		{{content}}
 	</div>
 
-	<span class="tags-links">
-		{% for tag in page.tags %}
-			<a href="/tag/{{tag}}">{{tag}}</a>
-		{% endfor %}
-	</span>
+	{% include tag-list.html tags=page.tags %}
 
 
 	{% if site.disqus.shortname %}

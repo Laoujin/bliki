@@ -28,13 +28,16 @@ collections:
     permalink: /:categories/:title/
 
 jekyll-archives:
-  enabled: all
-  layouts:
-    category: archives/category
-    tag: archives/category
-    year: archives/year
-    month: archives/month
-    day: archives/month
+  enabled: # all
+    - categories
+    - tags
+  layout: pages/archive
+  # layouts:
+  #   category: archives/category
+  #   tag: archives/category
+  #   year: archives/year
+  #   month: archives/month
+  #   day: archives/month
   permalinks:
     category: '/category/:name/'
     tag: '/tag/:name/'

@@ -3,7 +3,7 @@ layout: post
 title:  ".NET Number and Date Formatting"
 date:   2017-04-20 15:00:00 +0200
 categories: dotnet
-tags: [net,date,globalization]
+tags: [net,date,globalization,cheat-sheet]
 ---
 
 A cheat sheet with everything there is to know about 

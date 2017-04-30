@@ -1,0 +1,18 @@
+<ul class="post-list">
+	{% for post in include.posts %}
+		<li>
+
+			<h2 class="entry-title">
+				<a href="{{ post.url | relative_url }}">{{post.title | escape}}</a>
+			</h2>
+
+			{% include post-meta-data.html post=page author=false %}
+
+			{% include excerpt post=post %}
+
+			{% include tag-list.html tags=post.tags %}
+
+			<hr class="post-separator">
+		</li>
+	{% endfor %}
+</ul>
