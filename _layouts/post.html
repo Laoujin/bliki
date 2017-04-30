@@ -22,7 +22,7 @@ layout: default
 		{{content}}
 	</div>
 
-	{% include tag-list.html tags=page.tags %}
+	{% include tag-list.html tags=page.tags prefix=true %}
 
 
 	{% if site.disqus.shortname %}

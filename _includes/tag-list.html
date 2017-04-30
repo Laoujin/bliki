@@ -1,4 +1,11 @@
 <span class="cat-links">
+	{% if include.prefix %}
+		<span class="cat-text">
+			<i class="fa fa-fw fa-tags" aria-hidden="true" title="Post tags"></i>
+			Tags:
+		</span>
+	{% endif %}
+
 	{% for tag in include.tags %}
 		<a href="/tag/{{tag}}">{{tag}}</a>
 	{% endfor %}

@@ -31,24 +31,18 @@ a:visited {
 }
 
 
-.tags-links,
+.cat-text {
+	color: #9ba1a6;
+	font-weight: bold;
+}
+
 .cat-links {
 	clear: both;
 	display: inline;
 }
-.tags-links a {
-	background-color: rgba(243,133,31,1.0);
-	border-radius: 2px;
-	color: #fff;
-	display: inline-block;
-	margin: 0 5px .4em 0;
-	padding: 1px 3px;
-}
-.tags-links a:hover {
-	background-color: #f5a061;
-}
 .cat-links a {
 	background-color: rgba(57,172,160,1.0);
+	//background-color: rgba(243,133,31,1.0);
 	border-radius: 2px;
 	color: #fff;
 	display: inline-block;
