@@ -33,6 +33,8 @@ Mock<ICalculator> moq = new Mock<ICalculator>();
 ICalculator nsub = Substitute.For<ICalculator>();
 ```
 
+
+
 ## Basic example
 
 Notice how NSubstitute dropped all the ceremony code required by Moq.
@@ -49,6 +51,56 @@ var nsub = Substitute.For<ICalculator>();
 nsub.Add(1, 2).Returns(3);
 Assert.AreEqual(3, nsub.Add(1, 2));
 ```
+
+
+
+## Matching arguments
+
+**Moq**
+
+```c#
+// It.
+moq.Setup(calc => calc.Add(It.IsAny<int>(), It.Is<int>(b => b % 2 == 0))).Returns(3);
+
+//Moq also has
+//- It.IsRegex("", , RegexOptions.IgnoreCase)
+//- It.IsInRange(0, 1, Range.Inclusive)
+```
+
+**NSubstitute**
+
+```c#
+// Arg.
+nsub.Add(Arg.Any<int>(), Arg.Is<int>(b => b % 2 == 0)).Returns(3);
+```
+
+
+
+## Verification
+
+**Moq**
+
+```c#
+moq.Object.Add(1, 1);
+moq.Object.Add(1, 1);
+moq.Verify(calc => calc.Add(1, It.IsAny<int>()), Times.Exactly(2));
+
+// Property
+moq.VerifyGet(calc => calc.Mode, Times.Never);
+```
+
+**NSubstitute**
+
+```c#
+nsub.Add(1, 1);
+nsub.Add(1, 1);
+nsub.Received(2).Add(1, Arg.Any<int>());
+
+// Property
+var requiredAssignmentForCompiler = nsub.DidNotReceive().Mode;
+```
+
+
 
 ## Out and ref
 
@@ -104,49 +156,7 @@ nsub.When(x => x.SetMode("HEX")).Do(x => { throw new ArgumentException(); });
 Assert.Throws<ArgumentException>(() => nsub.SetMode("HEX"));
 ```
 
-## Matching arguments
 
-**Moq**
-
-```c#
-// It.
-moq.Setup(calc => calc.Add(It.IsAny<int>(), It.Is<int>(b => b % 2 == 0))).Returns(3);
-
-//Moq also has
-//- It.IsRegex("", , RegexOptions.IgnoreCase)
-//- It.IsInRange(0, 1, Range.Inclusive)
-```
-
-**NSubstitute**
-
-```c#
-// Arg.
-nsub.Add(Arg.Any<int>(), Arg.Is<int>(b => b % 2 == 0)).Returns(3);
-```
-
-## Verification
-
-**Moq**
-
-```c#
-moq.Object.Add(1, 1);
-moq.Object.Add(1, 1);
-moq.Verify(calc => calc.Add(1, It.IsAny<int>()), Times.Exactly(2));
-
-// Property
-moq.VerifyGet(calc => calc.Mode, Times.Never);
-```
-
-**NSubstitute**
-
-```c#
-nsub.Add(1, 1);
-nsub.Add(1, 1);
-nsub.Received(2).Add(1, Arg.Any<int>());
-
-// Property
-var requiredAssignmentForCompiler = nsub.DidNotReceive().Mode;
-```
 
 # Summary
 
