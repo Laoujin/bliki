@@ -335,6 +335,12 @@ public void ConvertingIndexesAndAddresses()
 }
 ```
 
+[The project code][github-project] also contains additional examples with
+
+- Rich text
+- Adding comments
+- Workbook & sheet protection from user editing
+
 
 [epplus-nuget]: https://www.nuget.org/packages/EPPlus/
 [github-project]: https://github.com/be-pongit/EPPlusTutorial

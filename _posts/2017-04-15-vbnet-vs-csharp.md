@@ -754,7 +754,7 @@ in C# this is no longer the case.
 Lambda syntax like `o.Where(Function(x As Integer) x < 0)` isn't going to win any prizes when camped against
 C#'s `o.Where((int x) => x < 0)`... But at least it's there :)
 
-I'm probably a *little* biased towards C# because of the more succint syntax and because the vast majority of
+I'm probably a *little* biased towards C# because of the more succinct syntax and because the vast majority of
 online examples are written in C# while the free convertion tools are severly lacking.
 
 

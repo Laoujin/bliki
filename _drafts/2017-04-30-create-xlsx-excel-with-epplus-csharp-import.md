@@ -13,3 +13,9 @@ permalink: /nuget/epplus/tutorial-part-3
 
 <!--more-->
 
+
+Miscellaneous: own article
+Expand on RichText:
+Each AddText() returns a new object that takes over all styling from the textobject is was invoked on
+and can then be styled separately.
+

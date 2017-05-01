@@ -18,7 +18,7 @@ an excel, leverage the power of Excel formulas.
 
 ## Formulas
 
-The project code creates an Excel like this:
+[The project code][github-project] creates an Excel like this:
 
 |   | A     | B        | C      | D          | E        | F         | G         | H       |
 |---|-------|----------|--------|------------|----------|-----------|-----------|---------|
@@ -157,3 +157,5 @@ using (var package = new ExcelPackage())
 	package.SaveAs(new FileInfo(@""));
 }
 ```
+
+[github-project]: https://github.com/be-pongit/EPPlusTutorial
