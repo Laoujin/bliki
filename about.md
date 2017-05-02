@@ -34,7 +34,7 @@ Backend: C# WebApi, SignalR
 C# WinForms and Greasemonkey/JavaScript extensions for Tribal Wars.
 
 [project-sangu]: http://sangu.be
-[project-ttc]: http://ttc-erembodegem.be
-[project-bliki]: https://github.com/be-pongit/be-pongit.github.io
+[project-ttc]: https://github.com/TTCErembodegem
+[project-bliki]: https://github.com/Laoujin/bliki
 [project-confac]: https://github.com/be-pongit/confac-front
 [confac-demo]: https://be-pongit.github.io/assets/confac-demo/index.html
