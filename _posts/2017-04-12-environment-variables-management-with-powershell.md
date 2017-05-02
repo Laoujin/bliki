@@ -4,6 +4,9 @@ title:  "Managing Environment Variables with PowerShell"
 date:   2017-04-12 15:00:00 +0200
 categories: productivity
 tags: [powershell,windows]
+extras:
+  - githubproject: https://github.com/Laoujin/dotfiles/blob/master/config/shells/PowerShell/envpath.ps1
+    githubtext: The full ps1 source
 ---
 
 {% include toc title="Environment vars" icon="windows" %}
@@ -16,8 +19,6 @@ After which you get a tiny, unresizable, form where you can view and manage them
 Something better eventually arrived with Windows 10 but still, PowerShell :)
 
 <!--more-->
-
-Find [the full ps1 source here][github-powershell-envpath]
 
 Getting environment variables
 -----------------------------
@@ -208,5 +209,3 @@ $env:LOCALAPPDATA
 $env:TEMP
 # C:\Users\Wouter\AppData\Local\Temp
 ```
-
-[github-powershell-envpath]: https://github.com/Laoujin/dotfiles/blob/master/config/shells/PowerShell/envpath.ps1

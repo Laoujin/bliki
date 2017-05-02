@@ -4,6 +4,9 @@ title:  "Package Manager Console Entity Framework 6 Migrations profile"
 date:   2017-04-10 20:22:13 +0200
 categories: productivity
 tags: [net,ef6,powershell,nuget]
+extras:
+  - githubproject: https://github.com/Laoujin/dotfiles/blob/master/config/shells/NuGet_profile.ps1
+    githubtext: "The full Nuget_profile.ps1"
 ---
 
 {% include toc title="EF6 PMC" icon="dot-circle-o" %}
@@ -14,7 +17,7 @@ This tutorial is about adding the following functionality to the Entity Framewor
 
 <!--more-->
 
-Find [the full Nuget_profile.ps1 here][github-nuget-profile]
+
 
 
 
@@ -170,10 +173,3 @@ Menu: Tools > NuGet Package Manager > Package Manager Console
 Shortcut: Alt + T, N, O  
 Custom shortcut: View.PackageManagerConsole  
 
-
-* * *
-
-
-Find [the full Nuget_profile.ps1 here][github-nuget-profile]
-
-[github-nuget-profile]: https://github.com/Laoujin/dotfiles/blob/master/config/shells/NuGet_profile.ps1

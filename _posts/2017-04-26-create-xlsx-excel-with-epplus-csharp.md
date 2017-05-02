@@ -5,6 +5,8 @@ date:   2017-04-26 22:00:00 +0200
 categories: dotnet
 tags: [net,excel,tutorial]
 permalink: /nuget/epplus/tutorial-part-1
+extras:
+  - githubproject: https://github.com/be-pongit/EPPlusTutorial
 ---
 
 {% include toc title="Excel series: Part 1" icon="file-excel-o" %}

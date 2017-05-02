@@ -13,7 +13,13 @@ layout: default
 	</header>
 
 	<div class="post-content" itemprop="articleBody">
+		{% include post-extras.html %}
+
 		{{content}}
+
+		<hr>
+
+		{% include post-extras.html %}
 	</div>
 
 

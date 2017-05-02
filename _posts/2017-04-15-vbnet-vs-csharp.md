@@ -23,7 +23,7 @@ This post assumes familiarity with C#.
 <!--more-->
 
 
-Confusingly Different
+Confusingly different
 ---------------------
 Or some fun issues during heavy context switching :)
 

@@ -4,6 +4,9 @@ title:  "NSubstitute tutorial: Moq comparison"
 date:   2017-04-30 12:00:00 +0200
 categories: dotnet
 tags: [net,tutorial,testing]
+extras:
+  - githubproject: https://github.com/be-pongit/NSubstituteTutorial
+    githubtext: The accompanying github project contains all code as UnitTests
 ---
 
 {% include toc title="NSubstitute vs Moq" icon="dot-circle-o" %}
@@ -15,8 +18,6 @@ with comparable capabilities but with a shorter, more succinct syntax.
 They have not failed to do so and I loved the NSubstitute syntax right away.
 
 <!--more-->
-
-The [accompanying github project][github-project] contains all code as working UnitTests.
 
 
 ```c#
@@ -173,8 +174,7 @@ The drop of `.Setup()` and `.Object` for **all** cases is very win for NSubstitu
 
 
 
-[github-project]: https://github.com/be-pongit/NSubstituteTutorial
 [Moq]: https://github.com/moq/moq4
 [NSubstitute]: https://github.com/nsubstitute/nsubstitute
 [Moq-Help]: https://github.com/Moq/moq4/wiki/Quickstart
-[NSubstitute-Help]: http://nsubstitute.github.io/
+[NSubstitute-Help]: http://nsubstitute.github.io
