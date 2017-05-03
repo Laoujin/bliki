@@ -25,7 +25,10 @@ excerpt_separator: <!--more-->
 collections:
   posts:
     output: true
-    permalink: /:categories/:title/
+    permalink: /:path/
+  bliki:
+    output: true
+    permalink: /:path/
 
 jekyll-archives:
   enabled: # all

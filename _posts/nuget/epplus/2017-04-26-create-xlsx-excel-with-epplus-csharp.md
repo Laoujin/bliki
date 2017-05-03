@@ -4,7 +4,7 @@ title:  "Create Excels with C# and EPPlus: A tutorial"
 date:   2017-04-26 22:00:00 +0200
 categories: dotnet
 tags: [net,excel,tutorial]
-permalink: /nuget/epplus/tutorial-part-1
+permalink: /nuget/epplus/tutorial-1
 extras:
   - githubproject: https://github.com/be-pongit/EPPlusTutorial
 ---
