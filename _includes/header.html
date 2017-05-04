@@ -6,7 +6,9 @@
 	</hgroup>
 
 	<nav role="navigation" class="main-navigation">
-		<h2 class="site-description">{{site.description | escape}}</h2>
+		<h2 class="site-description">
+			<a href="{{ "/" | relative_url}}">{{site.description | escape}}</a>
+		</h2>
 		<div class="menu">
 			<ul>
 				<li><a href="{{'/about' | relative_url}}">ABOUT</a></li>
