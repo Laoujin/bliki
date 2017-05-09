@@ -180,7 +180,7 @@ so `Conversion.Int(x)` is available as `Int(x)` without Import.
 
 All logical comparisons in VB.NET are typically done with `AndAlso` and `OrElse`.
 It's (surprise surprise) more typing than `And/Or` but the latter don't short-circuit
-the evalusations. Ex: `If x IsNot Nothing And x.Trigger() Then` will crash.
+the evaluations. Ex: `If x IsNot Nothing And x.Trigger() Then` will crash.
 
 
 ### Control flow
@@ -264,7 +264,6 @@ foreach (sting n in names) {
 | Shared                 | static
 | Overridable            | virtual
 | Overloads ' is optional| // no keyword required
-|                        |                                 |
 {: .table-code}
 
 
