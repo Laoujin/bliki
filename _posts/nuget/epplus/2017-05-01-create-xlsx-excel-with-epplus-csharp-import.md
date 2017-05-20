@@ -80,7 +80,7 @@ using (var package = new ExcelPackage())
 		new[] {"A2", "B2", "C3"},
 	};
 	sheet.Cells["A1"].LoadFromArrays(data);
-	package.SaveAs(new FileInfo(BinDir.GetPath()));
+	package.SaveAs(new FileInfo(@""));
 }
 ```
 
@@ -92,7 +92,7 @@ using (var package = new ExcelPackage())
 using (var package = new ExcelPackage())
 {
 	var sheet = package.Workbook.Worksheets.Add("CSV");
-	var file = new FileInfo(BinDir.GetPath("LoadFromText.csv"));
+	var file = new FileInfo("LoadFromText.csv");
 
 	var format = new ExcelTextFormat()
 	{
@@ -107,7 +107,7 @@ using (var package = new ExcelPackage())
 		// EOL, DataTypes, Encoding, SkipLinesBeginning/End
 	};
 	sheet.Cells["A1"].LoadFromText(file, format);
-	package.SaveAs(new FileInfo(BinDir.GetPath()));
+	package.SaveAs(new FileInfo(@""));
 }
 ```
 
