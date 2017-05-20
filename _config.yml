@@ -16,7 +16,7 @@ description: > # this means to ignore newlines until "baseurl:"
   Programming and stuff
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-#repository: be-pongit/be-pongit.github.io
+#repository: Laoujin/bliki
 github_data_url: https://github.com/Laoujin/bliki/blob/master
 github_username: Laoujin
 google_analytics: UA-30075487-6

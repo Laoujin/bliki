@@ -9,5 +9,5 @@ Note that there is no backend...
 Everything is stored in the Redux store only.
 
 
-[github-pages-link]: https://be-pongit.github.io/assets/confac-demo/index.html
+[github-pages-link]: http://pongit.be/assets/confac-demo/index.html
 [confac-front]: https://github.com/be-pongit/confac-front

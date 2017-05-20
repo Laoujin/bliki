@@ -37,4 +37,4 @@ C# WinForms and Greasemonkey/JavaScript extensions for Tribal Wars.
 [project-ttc]: https://github.com/TTCErembodegem
 [project-bliki]: https://github.com/Laoujin/bliki
 [project-confac]: https://github.com/be-pongit/confac-front
-[confac-demo]: https://be-pongit.github.io/assets/confac-demo/index.html
+[confac-demo]: http://pongit.be/assets/confac-demo/index.html
