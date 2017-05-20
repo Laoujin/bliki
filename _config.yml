@@ -55,7 +55,7 @@ gems:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-archives
+#   - jekyll-archives
 
 # kramdown:
 #   parse_block_html: true
