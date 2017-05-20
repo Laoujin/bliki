@@ -59,7 +59,11 @@ The locations are stored in: HKCU:\Software\Microsoft\Windows\CurrentVersion\Exp
 {% include kbd k="Alt+Left" l="Go to previous folder (or Backspace)" %}
 {% include kbd k="Alt+Right" l="Go to next folder" %}
 
-
+<br>
+**Drag &amp; Drop**:  
+{% include kbd k="Control" l="Copy dragged file(s)" %}
+{% include kbd k="Shift" l="Move dragged file(s)" %}
+{% include kbd k="Control+Shift" l="Create shortcut" %}
 
 ## Create a new dotfile
 
