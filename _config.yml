@@ -75,7 +75,8 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
-  - Rakefile
+  - rvm-installer
+  - LICENSE
   - package.json
   - TODO.md
   - README.md
