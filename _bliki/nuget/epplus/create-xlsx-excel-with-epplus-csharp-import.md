@@ -11,6 +11,7 @@ extras:
 {% include toc title="Excel series: Part 3" icon="file-excel-o" %}
 
 # IEnumerable objects
+{: .hide-from-excerpt}
 
 Exporting data to an Excel doesn't get easier than this
 

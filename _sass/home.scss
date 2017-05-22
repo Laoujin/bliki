@@ -5,6 +5,10 @@
 	> li {
 		margin-bottom: $spacing-unit;
 	}
+
+	.excerpt .hide-from-excerpt {
+		display: none;
+	}
 }
 
 hr {

@@ -11,6 +11,7 @@ extras:
 {% include toc title="Excel series: Part 4" icon="file-excel-o" %}
 
 # Miscellaneous features
+{: .hide-from-excerpt}
 
 EPPlus can do a whole lot more for you. This post covers some interesting stuff that didn't really fit anywhere else.
 

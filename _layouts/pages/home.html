@@ -4,6 +4,8 @@ layout: default
 
 <div class="hentry">
 
-	{% include post-list.html posts=site.bliki %}
+	{% assign bliki = site.bliki | sort:"date" | reverse %}
+	{% include post-list.html posts=bliki %}
+
 
 </div>
