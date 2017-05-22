@@ -1,0 +1,22 @@
+---
+layout: page
+title: Tags archive
+permalink: /tags/
+---
+
+{% assign tags =  site.bliki | map: 'tags' | join: ','  | split: ',' | uniq %}
+
+<h3>Jump to</h3>
+{% include tag-list.html tags=tags prefix=false url='#' %}
+
+
+{% for tag in tags %}
+  <a name="{{tag}}"><h1 style="color: black">{{tag}}</h1></a>
+  <ul>
+  {% for post in site.bliki %}
+    {% if post.tags contains tag %}
+    <li><a href="{{site.baseurl}}{{post.url}}">{{post.title}}</a></li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+{% endfor %}

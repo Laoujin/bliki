@@ -7,6 +7,6 @@
 	{% endif %}
 
 	{% for tag in include.tags %}
-		<a href="/tag/{{tag}}">{{tag}}</a>
+		<a href="{{include.url | default:'/tags/'}}{{tag}}">{{tag}}</a>
 	{% endfor %}
 </span>

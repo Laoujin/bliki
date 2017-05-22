@@ -43,7 +43,7 @@ jekyll-archives:
   #   day: archives/month
   permalinks:
     category: '/:name/'
-    tag: '/tag/:name/'
+    tag: '/tags/:name/'
     year: '/:year/'
     month: '/:year/:month/'
 
