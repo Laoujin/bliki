@@ -31,24 +31,52 @@ module Jekyll
 
       def generate(site)
         @site = site
-        @posts = @site.collections["bliki"] #site.posts
+        @posts = site.posts
         @archives = []
 
         @site.config["jekyll-archives"] = @config
 
+        @allTags = tags
+        @allCats = categories
+
         read
         @site.pages.concat(@archives)
-
-        #puts @site.collections["bliki"].docs
 
         @site.config["archives"] = @archives
       end
 
       # Read archive data from posts
       def read
+        read_bliki_tags
+        read_bliki_cats
+
         read_tags
         read_categories
         read_dates
+      end
+
+      def read_bliki_tags
+        @site.collections["bliki"].docs.each do |doc|
+          doc.data["tags"].each do |tag|
+            if @allTags.key?(tag)
+              @allTags[tag] << doc
+            else
+              @allTags[tag] = [] << doc
+            end
+          end
+        end
+      end
+
+      def read_bliki_cats
+        @site.collections["bliki"].docs.each do |doc|
+          doc.data["categories"].each do |category|
+            if @allCats.key?(category)
+              @allCats[category] << doc
+            else
+              @allCats[category] = [] << doc
+            end
+          end
+        end
       end
 
       def read_tags
@@ -60,14 +88,8 @@ module Jekyll
       end
 
       def read_categories
-        allCategories = []
-        allCategories.concat(categories)
-        # allCategories.concat(["productivity"])
-
-        puts allCategories
-
         if enabled? "categories"
-          allCategories.each do |title, posts|
+          categories.each do |title, posts|
             @archives << Archive.new(@site, title, "category", posts)
           end
         end
