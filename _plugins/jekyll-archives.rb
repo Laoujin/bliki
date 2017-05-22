@@ -48,7 +48,7 @@ module Jekyll
       # Read archive data from posts
       def read
         read_bliki_tags
-        read_bliki_cats
+        read_bliki_categories
 
         read_tags
         read_categories
@@ -67,7 +67,7 @@ module Jekyll
         end
       end
 
-      def read_bliki_cats
+      def read_bliki_categories
         @site.collections["bliki"].docs.each do |doc|
           doc.data["categories"].each do |category|
             if @allCats.key?(category)
@@ -81,7 +81,7 @@ module Jekyll
 
       def read_tags
         if enabled? "tags"
-          tags.each do |title, posts|
+          @allTags.each do |title, posts|
             @archives << Archive.new(@site, title, "tag", posts)
           end
         end
@@ -89,7 +89,7 @@ module Jekyll
 
       def read_categories
         if enabled? "categories"
-          categories.each do |title, posts|
+          @allCats.each do |title, posts|
             @archives << Archive.new(@site, title, "category", posts)
           end
         end

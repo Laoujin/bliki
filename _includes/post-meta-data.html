@@ -2,7 +2,7 @@
 <p class="entry-meta">
 	<time datetime="{{post.date | date_to_xmlschema}}" itemprop="datePublished">{{post.date | date: "%b %-d, %Y"}}</time>
 	•
-	<a href="/category/{{post.categories}}">{{post.categories}}</a>
+	<a href="/{{post.categories}}">{{post.categories}}</a>
 
 	{% if include.author %}
 		•
