@@ -1,7 +1,18 @@
 pongit.be
 =========
 
-```
+Notices: {: .notice}, {: .notice--info}, {: .notice--danger}  
+Are, for some reason, defined in _sass/vendor/notices.scss
+
+Hide from toc: {: .hide-from-excerpt}
+
+Table formatting: {: .table-code}, {: .table-margin}, {: .table-excel}
+
+Styling: {: style="margin-top: 10"}
+
+**Flow**
+
+```powershell
 # setup:
 gem install jekyll bundler
 
