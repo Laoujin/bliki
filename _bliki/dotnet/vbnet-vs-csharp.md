@@ -8,17 +8,18 @@ tags: [net,cheat-sheet]
 
 {% include toc title="Battle" icon="dot-circle-o" %}
 
-A quick cheat sheet outlining the syntax differences between VB.NET and C#.  
+A cheat sheet outlining the syntax differences between VB.NET and C#. This post is written
+specifically for advanced C# developers with little to no VB.NET knowledge who need to do
+some VB.NET coding.
+
 Because some things are just so similar but still confusingly different in VB.NET vs C#...
+{: .notice--info}
 
 Along the way we'll make some amazing discoveries like:
 - There are things VB.NET just can't do (pointers, ...)
 - There are a few cases where VB.NET code is *shorter* than it's C# counterpart (gasp!)
 - VB.NET defaults are not what you might expect from a strongly typed language due to its VB6 legacy (Option Strict, Explicit)
 - There is some VB.NET only stuff that comes in handy from time to time
-
-
-This post assumes familiarity with C#.
 
 <!--more-->
 
@@ -214,11 +215,13 @@ End If
 ' C#: Use Regex
 
 ' VB.NET switch is more feature rich
+' There is no break; and no fallback
 Select Case x
 	Case 1, 2, 5 To 10
 	Case Is = y ' Is is optional
 	Case Is > 10
 	Case Else
+		' Exit Select is implied
 End Select
 
 Select Case x.GetType
@@ -236,7 +239,7 @@ For Each n As String In names
 Next
 
 // C#
-foreach (sting n in names) {
+foreach (string n in names) {
 	break;
 	continue;
 }
@@ -286,7 +289,7 @@ Class MyColl(Of TEntity)
 	Implements IDisposable, IAlarm
 	' Class MyCall<TEntity> : Collection<TEntity>, IDisposable, IAlarm
 
-	ReadOnly MinInt As Integer = 0.5
+	ReadOnly MinInt As Integer = 0
 	Const MaxInt As Integer = 25
 
 	Public Property WakeUpAt As Date Implements IAlarm.WakeUpAt
@@ -333,7 +336,7 @@ Class MyColl(Of TEntity)
 
 	Shared Function Max(Of T As {IComparable, Structure})(ByVal ParamArray items As T()) As T
 		' static T Max<T>(params T[] items) where T : IComparable, struct
-		' Assign to Function name instead of Return items.Max
+		' It is possible to assign the return value to the method name instead of Return items.Max
 		Max = items.Max
 	End Function
 
@@ -461,7 +464,7 @@ Dim peopleByAge =
 |--------------------------------------------|--------------------------------------------|
 | Dim nums = New Integer() {1, 2, 3}         | int[] nums = new[] {1, 2, 3};
 | Dim nums() As Integer = {1, 2, 3}
-| Dim names(4) As String ' 5 elements        | var names = new string[5];
+| Dim names(4) As String ' 4 elements        | var names = new string[5];
 | ReDim Preserve names(6) ' Preserve optional| Array.Resize(ref names, 7);
 |                                            |                                            |
 | Dim h = New Hero With {.Name = "Deadpool"} | var h = new Hero() {Name = "Deadpool"};
