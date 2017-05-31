@@ -1,13 +1,15 @@
 ---
 layout: post
-title:  "JavaScript Testing: Jasmine"
+title:  "JavaScript Testing: Getting started with Jasmine"
 date:   2017-05-29 12:00:00 +0200
 categories: javascript
 tags: [javascript,tutorial,testing]
-series: jasmine
+series: js-testing
 ---
 
-{% include toc title="Jasmine Tutorial" icon="icon-javascript" %}
+TODO: test some es6 js file... (in section: Run)
+
+{% include toc title="Getting Started" icon="icon-javascript" %}
 
 Probably the most widely used JavaScript testing framework.
 
@@ -73,5 +75,7 @@ Run the tests with a simple `jasmine` or add to your package.json:
 	"test:w": "nodemon --exec \"npm test\""
 },
 ```
+
+And start once with `npm test` or just `npm t`. Or start watching with `npm run test:w`.
 
 `test:w`(atch) requires a `npm install --save-dev nodemon` to work.
