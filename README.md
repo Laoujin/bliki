@@ -1,16 +1,31 @@
 pongit.be
 =========
 
+## Kramdown
+
 Notices: {: .notice}, {: .notice--info}, {: .notice--danger}  
 Are, for some reason, defined in _sass/vendor/notices.scss
 
-Hide from toc: {: .hide-from-excerpt}
+Hide from excerpt: {: .hide-from-excerpt}
 
 Table formatting: {: .table-code}, {: .table-margin}, {: .table-excel}
 
 Styling: {: style="margin-top: 10"}
 
-**Flow**
+
+## Front Matter
+
+```
+series: xxx
+extras:
+  - githubproject: https://github.com/be-pongit/
+    githubtext: Just Be pongit
+interesting:
+  - url
+  - url
+```
+
+## Flow
 
 ```powershell
 # setup:
@@ -30,6 +45,10 @@ bundle install
 # PRD flag
 $env:JEKYLL_ENV = "production"
 ```
+
+## TODO
+
+Add an {: .aside}
 
 Plugins that might be added later:  
 - [jekyll-gist][jekyll-gist]
@@ -73,10 +92,6 @@ Kramdown tutorial
 	{% endif %}
 {% endfor %}
 ```
-
-TODO
-----
-https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
 
 [jekyll-gist]: https://github.com/jekyll/jekyll-gist
 [jemoji]: https://github.com/jekyll/jemoji
