@@ -7,8 +7,6 @@ tags: [javascript,tutorial,testing]
 series: js-testing
 ---
 
-TODO: test some es6 js file... (in section: Run)
-
 {% include toc title="Getting Started" icon="icon-javascript" %}
 
 Probably the most widely used JavaScript testing framework.
@@ -72,10 +70,49 @@ Run the tests with a simple `jasmine` or add to your package.json:
 ```json
 "scripts": {
 	"test": "jasmine",
-	"test:w": "nodemon --exec \"npm test\""
+	"test:w": "nodemon --exec \"npm test\"",
+	"test:alt": "jasmine JASMINE_CONFIG_PATH=spec/support/jasmine-alt.json",
+	"test:cli": "jasmine --filter=\"describe and/or it\" --stop-on-failure=true --no-color --random=true -seed=7337"
 },
 ```
 
 And start once with `npm test` or just `npm t`. Or start watching with `npm run test:w`.
 
 `test:w`(atch) requires a `npm install --save-dev nodemon` to work.
+
+`test:alt` and `test:cli` demonstrate the available Jasmine CLI parameters.
+
+
+## Run ES2015+
+
+As soon as one of your tests hits `import x from` it's a crash. Oh noes!
+Chances are you are already using Babel for older browser support.
+The very same [Babel][babel-setup] to the rescue here!
+
+```sh
+npm install --save-dev babel-register
+
+# Add all the presets/plugins you're using
+npm install --save-dev babel-preset-es2015
+```
+
+Add all the presets/plugins to your `.babelrc`
+```json
+{
+	"presets": ["es2015"]
+}
+```
+
+And add a `package.json` script: `babel-node run.js`
+```js
+// run.js
+import Jasmine from 'jasmine';
+
+const jasmine = new Jasmine();
+jasmine.loadConfigFile('./spec/support/jasmine.json');
+jasmine.execute();
+```
+
+
+
+[babel-setup]: http://babeljs.io/docs/setup
