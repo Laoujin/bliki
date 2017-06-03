@@ -12,7 +12,8 @@ extras:
 {% include toc title="Jasmine Spies" icon="icon-javascript" %}
 
 Spies, the Jasmine implementation for mocks
-featuring `spyOn` and the new `spyOnProperty`.
+featuring `spyOn` and the new `spyOnProperty` aswell as `jasmine.createSpy(Obj)`
+and how to inspect calls made.
 
 <!--more-->
 

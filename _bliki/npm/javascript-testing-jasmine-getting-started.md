@@ -14,7 +14,7 @@ extras:
 Probably the most widely used JavaScript testing framework.
 
 This tutorial covers installation, configuration and execution only.
-For the Jasmine syntax, see parts 2 and 3!
+For the Jasmine syntax, see parts 2 to 4!
 
 <!--more-->
 
