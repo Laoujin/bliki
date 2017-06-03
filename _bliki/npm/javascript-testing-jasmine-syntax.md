@@ -3,17 +3,26 @@ layout: post
 title:  "JavaScript Testing: Jasmine syntax"
 date:   2017-05-30 12:00:00 +0200
 categories: javascript
-tags: [javascript,cheat-sheet,testing]
+tags: [javascript,tutorial,testing]
 series: js-testing
+extras:
+  - githubproject: https://github.com/be-pongit/jasmine-tut
 ---
 
 {% include toc title="Jasmine Syntax" icon="icon-javascript" %}
 
-Time to start writing some real tests with Jasmine!
+The basic example contains the general test suite structure and the 
+two most used matchers `toBe()` (===) and `toEqual()` (deep compare),
+followed by all the other matchers that come out of the box.
+
+To finish some helpers for your workflow: how to only have certain
+tests run and how to exclude tests.
 
 <!--more-->
 
 ## Basic example
+
+Time to start writing some real tests with Jasmine!
 
 ```js
 describe('basic example', () => {
@@ -117,25 +126,6 @@ it('jasmine.anything', () => {
 The [matchers source][jasmine-matchers] for if you'd like to take a peek at the implementations.
 
 
-
-## Async example
-
-```js
-
-```
-
-TODO: Add new Clock().install().tick(ms)
-jasmine.clock() = get currently booted mock
-
-
-An `it` has a third optional timeout parameter (in ms) which defaults to the global
-variable `jasmine.DEFAULT_TIMEOUT_INTERVAL` (=5000ms).
-
-To cover:
-- async (done)
-- spyOn() and spyOnProperty + jasmine.createSpy('name', originalFn) and jasmine.createSpyObj
-
-done.fail('err')
 
 
 ## Workflow

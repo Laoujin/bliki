@@ -5,6 +5,8 @@ date:   2017-05-29 12:00:00 +0200
 categories: javascript
 tags: [javascript,tutorial,testing]
 series: js-testing
+extras:
+  - githubproject: https://github.com/be-pongit/jasmine-tut
 ---
 
 {% include toc title="Getting Started" icon="icon-javascript" %}
@@ -12,7 +14,7 @@ series: js-testing
 Probably the most widely used JavaScript testing framework.
 
 This tutorial covers installation, configuration and execution only.
-For the Jasmine syntax, see part 2!
+For the Jasmine syntax, see parts 2 and 3!
 
 <!--more-->
 
