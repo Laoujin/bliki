@@ -46,7 +46,7 @@ bundle install
 $env:JEKYLL_ENV = "production"
 ```
 
-## TODO
+## Jekyll TODO
 
 Add an {: .aside}
 
@@ -56,14 +56,19 @@ Plugins that might be added later:
 - [jekyll-compose][jekyll-compose]
 - https://github.com/bdesham/inline_highlight
 
+**Keyboard Glyphs**:  
+BUG: Shortcut containing a + or ,
+
+## Bliki TODO
+
+- .NET Number/Date Formatting: Create a cheat-sheet and a comparison with MomentJS
+
+
 Liquid
 ------
 https://help.shopify.com/themes/liquid
 https://github.com/Shopify/liquid/wiki/Liquid-for-Designers
 
-
-**Keyboard Glyphs**:  
-BUG: Shortcut containing a + or ,
 
 
 Kramdown tutorial
