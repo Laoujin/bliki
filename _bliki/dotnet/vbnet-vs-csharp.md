@@ -182,6 +182,7 @@ All logical comparisons in VB.NET are typically done with `AndAlso` and `OrElse`
 It's (surprise surprise) more typing than `And/Or` but the latter don't short-circuit
 the evaluations. Ex: `If x IsNot Nothing And x.Trigger() Then` will crash.
 
+To escape a reserved word `Public Class [Class]`. (C#: `public class @class`)
 
 ### Control flow
 
