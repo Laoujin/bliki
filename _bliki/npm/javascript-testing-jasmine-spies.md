@@ -149,19 +149,19 @@ it('knows about arguments, returnValues and more', () => {
 ## spyOnProperty
 
 ```js
-const fooProp = {
+const foop = {
 	get value() {},
 	set value(v) {}
 };
 
 it('can spy on getter', () => {
-	spyOnProperty(fooProp, 'value', 'get').and.returnValue(1);
-	expect(fooProp.value).toBe(1);
+	spyOnProperty(foop, 'value', 'get').and.returnValue(1);
+	expect(foop.value).toBe(1);
 });
 
 it('and on setters', () => {
-	const spiez = spyOnProperty(fooProp, 'value', 'set');
-	fooProp.value = true;
+	const spiez = spyOnProperty(foop, 'value', 'set');
+	foop.value = true;
 	expect(spiez).toHaveBeenCalled();
 });
 ```
