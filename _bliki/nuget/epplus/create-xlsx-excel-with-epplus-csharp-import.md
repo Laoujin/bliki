@@ -119,5 +119,5 @@ using (var package = new ExcelPackage())
 In case you ever need it, it's there :)
 
 ```c#
-sheet.Cells["A1"].LoadFromDataTable(new DataTable());
+sheet.Cells["A1"].LoadFromDataTable(new DataTable(), true);
 ```
