@@ -149,12 +149,18 @@ Assert.Throws<ArgumentException>(() => moq.Object.SetMode("HEX"));
 **NSubstitute**
 
 ```c#
-nsub.Add(1, 1).Returns(x => { throw new InvalidOperationException(); });
+using NSubstitute.ExceptionExtensions;
+
+nsub.Add(1, 1).Throws(new Exception());
 Assert.Throws<InvalidOperationException>(() => nsub.Add(1, 1));
 
-// For voids - not so nice..
-nsub.When(x => x.SetMode("HEX")).Do(x => { throw new ArgumentException(); });
+nsub.When(x => x.SetMode("HEX")).Throw<Exception>();
 Assert.Throws<ArgumentException>(() => nsub.SetMode("HEX"));
+
+// The extension method syntax is much cleaner
+// Without it, the setup becomes the following
+nsub.Add(1, 1).Returns(x => { throw new InvalidOperationException(); });
+nsub.When(x => x.SetMode("HEX")).Do(x => { throw new ArgumentException(); });
 ```
 
 
@@ -163,12 +169,11 @@ Assert.Throws<ArgumentException>(() => nsub.SetMode("HEX"));
 
 So I like NSubstitute.
 
-I find Moqs syntax to be more graceful in some cases like when throwing Exceptions
-and the `Func<T1, T2, ...>` overloads they have provided for Returns.
-For a bit more complex syntax for such cases you do get to treat methods and properties 
-alike compared to Moq who's stuck with `VerifyGet`.
-Because of this NSubstitute got better discoverability in the IDE while Moq is
-also struggling with a whole bunch of deprecated ways of doing things.
+I find Moqs `Func<T1, T2, ...>` overloads they have provided for `.Return` very useful.
+NSubstitute requires some more typing to achieve the same `.Return` capabilities but 
+you do get to treat methods and properties alike compared to Moq who's stuck with `VerifyGet`.
+Because of this NSubstitute got better discoverability inside an IDE while Moq
+continues to struggle with a whole bunch of deprecated ways of doing things.
 
 The drop of `.Setup()` and `.Object` for **all** cases is very win for NSubstitute.
 
