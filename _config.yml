@@ -52,10 +52,10 @@ markdown: kramdown
 #lsi: true # https://jekyllrb.com/docs/configuration/
 theme: jekyll-theme-minimal
 gems:
-  - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-#   - jekyll-archives
+#  - jekyll-feed
+#  - jekyll-archives
 
 kramdown:
 #   parse_block_html: true
