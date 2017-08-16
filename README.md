@@ -12,6 +12,8 @@ Table formatting: {: .table-code}, {: .table-margin}, {: .table-excel}
 
 Styling: {: style="margin-top: 10"}
 
+{% include kbd k="Win+E" l="" %}
+
 
 ## Front Matter
 
