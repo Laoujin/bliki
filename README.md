@@ -1,32 +1,6 @@
 pongit.be
 =========
 
-## Kramdown
-
-Notices: {: .notice}, {: .notice--info}, {: .notice--danger}  
-Are, for some reason, defined in _sass/vendor/notices.scss
-
-Hide from excerpt: {: .hide-from-excerpt}
-
-Table formatting: {: .table-code}, {: .table-margin}, {: .table-excel}
-
-Styling: {: style="margin-top: 10"}
-
-{% include kbd k="Win+E" l="" %}
-
-
-## Front Matter
-
-```
-series: xxx
-extras:
-  - githubproject: https://github.com/be-pongit/
-    githubtext: Just Be pongit
-interesting:
-  - url
-  - url
-```
-
 ## Flow
 
 ```powershell
