@@ -1,7 +1,7 @@
 ### Wouter Van Schandevijl
 ```
-woutervs@hotmail.com
-+32 (0)476 / 40 35 02
+{{ site.email }}
+{{ site.telephone }}
 ```
 
 ### Social Media
