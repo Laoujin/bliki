@@ -13,8 +13,8 @@
 ### pongit BVBA
 ```
 pongit BVBA
-Doolhofstraat 37
-9300 Aalst
+Gentbruggestraat 204
+9040 Sint-Amandsberg
 Belgium
 
 BTW: 0662 755 072
