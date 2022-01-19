@@ -20,6 +20,8 @@ bundle install
 
 # PRD flag
 $env:JEKYLL_ENV = "production"
+bundle exec jekyll build
+# Or Jenkins: http://pongit:9001/job/bliki%20(pongit.be)
 ```
 
 ## Jekyll TODO
