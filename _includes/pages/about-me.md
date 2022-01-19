@@ -10,9 +10,9 @@
 [LinkedIn profile][linkedin]  
 [RSS Feed][rss]  
 
-### pongit BVBA
+### pongit BV
 ```
-pongit BVBA
+pongit BV
 Gentbruggestraat 204
 9040 Sint-Amandsberg
 Belgium
