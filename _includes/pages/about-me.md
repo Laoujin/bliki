@@ -18,8 +18,8 @@ Gentbruggestraat 204
 Belgium
 
 BTW: 0662 755 072
-IBAN: BE04 0689 0602 8931
-BIC: GKCCBEBB
+IBAN: BE76 7370 5749 7195
+BIC: KRED BE BB
 ```
 
 [linkedin]: https://www.linkedin.com/in/woutervanschandevijl
