@@ -7,7 +7,9 @@ layout: pages/about-me
 
 ### Public Speaking
 
-Sharing is caring. I've given talks about Html5, Git, Design Patterns and React.
+Sharing is caring. I've given talks and workshops on Git, Design Patterns, React,
+Angular, Vue, .NET WebApi, RXJS, Mongo, Docker, ModernJS, Code Complete,
+The Mythical Man-Month, Architecture, Redux, Serverless, UI/UX and many more.
 
 
 ### Open Source Projects
@@ -29,9 +31,9 @@ Backend: C# WebApi, SignalR
 [Sangu Package and TWTactics][project-sangu]  
 C# WinForms and Greasemonkey/JavaScript extensions for Tribal Wars.
 
-[project-sangu]: http://sangu.be
+[project-sangu]: https://sangu.be
 [project-ttc]: https://github.com/TTCErembodegem
 [project-bliki]: https://github.com/itenium-be/blog-posts
-[project-confac]: https://github.com/be-pongit/confac-front
+[project-confac]: https://github.com/itenium-be/confac
 [confac-demo]: https://pongit.be/assets/confac-demo/index.html
 [itenium-blog]: https://itenium.be/blog
