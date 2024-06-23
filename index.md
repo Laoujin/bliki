@@ -17,7 +17,6 @@ The Mythical Man-Month, Architecture, Redux, Serverless, UI/UX and many more.
 [Consultant invoicing][project-confac]  
 Small invoicing application aimed at consultants specifically. Create invoice pdfs from pug + css.
 Technologies: React/Redux, Koa, MongoDB  
-There is a [demo][confac-demo]! (without backend:)
 
 [Something Fishy][project-bliki]  
 This blog has moved to [itenium.be/blog][itenium-blog]
@@ -35,5 +34,4 @@ C# WinForms and Greasemonkey/JavaScript extensions for Tribal Wars.
 [project-ttc]: https://github.com/TTCErembodegem
 [project-bliki]: https://github.com/itenium-be/blog-posts
 [project-confac]: https://github.com/itenium-be/confac
-[confac-demo]: https://pongit.be/assets/confac-demo/index.html
 [itenium-blog]: https://itenium.be/blog
