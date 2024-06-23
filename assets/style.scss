@@ -43,14 +43,10 @@ $on-laptop:        800px;
 
 @import "vendor/_base";
 @import "vendor/_fonts";
-@import "vendor/_syntax-highlighting";
-@import "vendor/notices";
 
 @import "layout/general";
 @import "layout/page";
 @import "layout/header";
 @import "layout/footer";
 
-@import "tables";
-@import "home";
 @import "about-me";
