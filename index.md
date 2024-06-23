@@ -23,7 +23,7 @@ There is a [demo][confac-demo]! (without backend:)
 This blog has moved to [itenium.be/blog][itenium-blog]
 
 
-[Pingpong Club Erembodegem][project-ttc]  
+[Pingpong Club Aalst][project-ttc]  
 Frontend: React, Redux, Webpack, Bluebird, JWT, ImmutableJS  
 Backend: C# WebApi, SignalR  
 
