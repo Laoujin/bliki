@@ -42,7 +42,7 @@ Technologies: PowerShell
 
 
 [Mi-Ke](https://github.com/itenium-be/Mi-Ke)  
-A collection of Autohotkey scripts to make daily life in Windows less dull.
+A collection of [Autohotkey scripts](https://itenium.be/Mi-Ke/) to make daily life in Windows less dull.
 Named after the super cool AI in my favourite childhood scifi book.
 Technologies: Autohotkey
 
@@ -54,6 +54,10 @@ Technologies: JavaScript Greasemonkey
 
 [Git-NumberedAdd](https://github.com/itenium-be/Git-NumberedAdd)
 Manipulate your git index with fabricated indexes -- in [PowerShell](https://www.powershellgallery.com/packages/Git-NumberedAdd)!
+
+
+[date-holidays-be](https://github.com/itenium-be/date-holidays-be)  
+[npm package](https://www.npmjs.com/package/@itenium/date-holidays-be) to calculate the Belgian holidays. Technologies: TypeScript, Jest.
 
 
 [Pingpong Club Aalst][project-ttc]  
