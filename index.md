@@ -28,7 +28,7 @@ Sharing is caring. I've given talks and workshops on
 
 [Consultant invoicing][project-confac]  
 Small invoicing application aimed at consultants specifically. Create invoice pdfs from pug + css.
-Technologies: React/Redux, Express, MongoDB, Jest  
+Technologies: React/Redux, TypeScript, Express, MongoDB, Jest  
 
 
 [Something Fishy][project-bliki]  
@@ -45,6 +45,15 @@ Technologies: PowerShell
 A collection of Autohotkey scripts to make daily life in Windows less dull.
 Named after the super cool AI in my favourite childhood scifi book.
 Technologies: Autohotkey
+
+
+[Starify Github Links](https://github.com/itenium-be/github-stars-links)  
+Add star badges to Github repository links [Chrome Extension](https://chrome.google.com/webstore/detail/starify-github-repo-links/kpficnopciffopkhjpckhkgmnlakcmig)!
+Technologies: JavaScript Greasemonkey
+
+
+[Git-NumberedAdd](https://github.com/itenium-be/Git-NumberedAdd)
+Manipulate your git index with fabricated indexes -- in [PowerShell](https://www.powershellgallery.com/packages/Git-NumberedAdd)!
 
 
 [Pingpong Club Aalst][project-ttc]  
