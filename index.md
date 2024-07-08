@@ -1,6 +1,6 @@
 ---
 layout: pages/about-me
-title: 
+title: "Programming and stuff"
 ---
 
 ### Public Speaking
