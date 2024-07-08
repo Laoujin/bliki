@@ -17,7 +17,7 @@ The Mythical Man-Month, Architecture, Redux, Serverless, UI/UX and many more.
 
 [Consultant invoicing][project-confac]  
 Small invoicing application aimed at consultants specifically. Create invoice pdfs from pug + css.
-Technologies: React/Redux, Koa, MongoDB  
+Technologies: React/Redux, Express, MongoDB, Jest  
 
 [Something Fishy][project-bliki]  
 This blog has moved to [itenium.be/blog][itenium-blog]
