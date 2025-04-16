@@ -70,7 +70,7 @@ C# WinForms and Greasemonkey/JavaScript extensions for Tribal Wars.
 
 
 [project-sangu]: https://sangu.be
-[project-ttc]: https://github.com/TTCErembodegem
+[project-ttc]: https://github.com/TTC-AAlst
 [project-bliki]: https://github.com/itenium-be/blog-posts
 [project-confac]: https://github.com/itenium-be/confac
 [itenium-blog]: https://itenium.be/blog
