@@ -41,7 +41,7 @@ poor Windows power users?
 Technologies: PowerShell
 
 
-[Mi-Ke](https://github.com/itenium-be/Mi-Ke)  
+[Mi-Ke](https://itenium-be.github.io/Mi-Ke/)  
 A collection of [Autohotkey scripts](https://itenium.be/Mi-Ke/) to make daily life in Windows less dull.
 Named after the super cool AI in my favourite childhood scifi book.
 Technologies: Autohotkey
